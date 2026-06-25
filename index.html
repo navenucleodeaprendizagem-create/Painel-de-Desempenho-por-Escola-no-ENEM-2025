@@ -1,0 +1,1784 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NAVE – Painel de Desempenho por Escola ENEM 2025</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --blue:#1E6FD9;
+  --blue-light:#4A9FFF;
+  --blue-dark:#0D3A8C;
+  --purple:#7B3FD4;
+  --purple-light:#A066E8;
+  --magenta:#B12BE8;
+  --navy:#0E1B3D;
+  --navy-mid:#162451;
+  --navy-light:#1E3370;
+  --white:#FFFFFF;
+  --off-white:#F0F4FF;
+  --text-muted:#8AA0CC;
+  --excelente:#00C9FF;
+  --forte:#22D97A;
+  --intermediario:#F5A623;
+  --atencao:#FF8A3D;
+  --critico:#FF4D6A;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+  font-family:"Sora",sans-serif;
+  background:var(--navy);
+  color:var(--white);
+  min-height:100vh;
+  overflow-x:hidden;
+}
+
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:0;
+  background:
+    radial-gradient(ellipse 80% 60% at 10% 0%,rgba(30,111,217,0.18) 0%,transparent 60%),
+    radial-gradient(ellipse 60% 80% at 90% 100%,rgba(123,63,212,0.24) 0%,transparent 60%),
+    radial-gradient(ellipse 40% 50% at 50% 50%,rgba(177,43,232,0.10) 0%,transparent 65%);
+  pointer-events:none;
+}
+
+header{
+  position:relative;
+  z-index:10;
+  background:rgba(14,27,61,0.88);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid rgba(74,159,255,0.22);
+  padding:0 2rem;
+  height:76px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.logo-wrap{
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+
+.logo-img{
+  width:48px;
+  height:48px;
+  max-width:48px;
+  max-height:48px;
+  border-radius:12px;
+  background:#fff;
+  object-fit:contain;
+  padding:4px;
+  box-shadow:0 10px 30px rgba(30,111,217,0.25);
+  display:block;
+}
+
+.logo-text{
+  display:flex;
+  flex-direction:column;
+  line-height:1.1;
+}
+
+.logo-text .title{
+  font-size:1.08rem;
+  font-weight:800;
+  letter-spacing:0.05em;
+}
+
+.logo-text .sub{
+  font-size:0.62rem;
+  color:var(--text-muted);
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+}
+
+.header-badge{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  background:linear-gradient(135deg,rgba(30,111,217,0.25),rgba(123,63,212,0.25));
+  border:1px solid rgba(74,159,255,0.32);
+  border-radius:40px;
+  padding:7px 14px;
+  font-size:0.62rem;
+  font-weight:800;
+  letter-spacing:0.06em;
+  color:var(--blue-light);
+  text-transform:uppercase;
+  white-space:nowrap;
+}
+
+.header-badge .dot{
+  width:7px;
+  height:7px;
+  border-radius:50%;
+  background:var(--forte);
+  box-shadow:0 0 8px var(--forte);
+}
+
+main{
+  position:relative;
+  z-index:1;
+  max-width:1180px;
+  margin:0 auto;
+  padding:2.5rem 1.5rem 4rem;
+}
+
+.intro-hero{
+  background:linear-gradient(135deg,rgba(22,36,81,0.92),rgba(18,44,72,0.88));
+  border:1px solid rgba(74,159,255,0.22);
+  border-radius:24px;
+  padding:2rem;
+  margin-bottom:1.7rem;
+  display:grid;
+  grid-template-columns:1.4fr 0.8fr;
+  gap:2rem;
+  align-items:center;
+  box-shadow:0 18px 45px rgba(0,0,0,0.18);
+}
+
+.intro-kicker{
+  font-size:0.68rem;
+  font-weight:800;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  color:var(--blue-light);
+  margin-bottom:0.75rem;
+}
+
+.intro-title{
+  font-size:2rem;
+  font-weight:800;
+  line-height:1.08;
+  margin-bottom:0.85rem;
+}
+
+.intro-text{
+  font-size:0.92rem;
+  line-height:1.65;
+  color:var(--off-white);
+  opacity:0.94;
+}
+
+.intro-metrics{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:0.8rem;
+  margin-top:1.2rem;
+}
+
+.intro-metric{
+  background:rgba(14,27,61,0.58);
+  border:1px solid rgba(74,159,255,0.15);
+  border-radius:14px;
+  padding:0.9rem;
+}
+
+.intro-metric strong{
+  display:block;
+  font-family:"JetBrains Mono",monospace;
+  font-size:1.22rem;
+  color:var(--white);
+}
+
+.intro-metric span{
+  font-size:0.62rem;
+  text-transform:uppercase;
+  letter-spacing:0.12em;
+  color:var(--text-muted);
+}
+
+.prof-card{
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.10);
+  border-radius:20px;
+  padding:1.3rem;
+}
+
+.prof-title{
+  font-size:1rem;
+  font-weight:800;
+  margin-bottom:0.8rem;
+}
+
+.prof-info{
+  font-size:0.72rem;
+  color:var(--off-white);
+  line-height:1.7;
+}
+
+.prof-info strong{
+  color:var(--blue-light);
+}
+
+.section-label{
+  font-size:0.65rem;
+  font-weight:800;
+  letter-spacing:0.2em;
+  text-transform:uppercase;
+  color:var(--blue-light);
+  margin-bottom:0.7rem;
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.section-label::before{
+  content:"";
+  display:inline-block;
+  width:18px;
+  height:2px;
+  background:linear-gradient(90deg,var(--blue),var(--purple));
+  border-radius:2px;
+}
+
+.legal-notice-card{
+  background:linear-gradient(135deg,rgba(14,27,61,0.92),rgba(22,36,81,0.86));
+  border:1px solid rgba(74,159,255,0.24);
+  border-left:4px solid var(--blue-light);
+  border-radius:18px;
+  padding:1.35rem 1.45rem;
+  margin-bottom:1.8rem;
+}
+
+.legal-notice-title{
+  display:flex;
+  align-items:center;
+  gap:9px;
+  font-size:0.76rem;
+  font-weight:800;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  color:var(--blue-light);
+  margin-bottom:0.75rem;
+}
+
+.legal-notice-body{
+  font-size:0.80rem;
+  line-height:1.68;
+  color:var(--off-white);
+}
+
+.filter-panel{
+  background:rgba(22,36,81,0.72);
+  backdrop-filter:blur(16px);
+  border:1px solid rgba(74,159,255,0.16);
+  border-radius:20px;
+  padding:2rem;
+  margin-bottom:1.6rem;
+}
+
+.filter-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(205px,1fr));
+  gap:1.25rem;
+  align-items:end;
+}
+
+.filter-group label{
+  display:block;
+  font-size:0.64rem;
+  font-weight:800;
+  letter-spacing:0.15em;
+  text-transform:uppercase;
+  color:var(--text-muted);
+  margin-bottom:0.5rem;
+}
+
+.filter-group select,
+.filter-group input{
+  width:100%;
+  background:rgba(14,27,61,0.82);
+  border:1px solid rgba(74,159,255,0.26);
+  border-radius:10px;
+  color:var(--white);
+  font-family:"Sora",sans-serif;
+  font-size:0.86rem;
+  font-weight:500;
+  padding:10px 13px;
+}
+
+.filter-group select:focus,
+.filter-group input:focus{
+  outline:none;
+  border-color:var(--blue-light);
+  box-shadow:0 0 0 3px rgba(74,159,255,0.15);
+}
+
+.filter-group select option{
+  background:#1a2a5e;
+}
+
+.btn-row{
+  display:flex;
+  gap:0.75rem;
+  flex-wrap:wrap;
+  margin-top:1.2rem;
+}
+
+.btn{
+  padding:11px 22px;
+  border:none;
+  border-radius:10px;
+  color:var(--white);
+  font-family:"Sora",sans-serif;
+  font-size:0.84rem;
+  font-weight:800;
+  letter-spacing:0.05em;
+  cursor:pointer;
+  transition:transform 0.15s,box-shadow 0.15s,border-color 0.15s;
+}
+
+.btn-primary{
+  background:linear-gradient(135deg,var(--blue),var(--purple));
+  box-shadow:0 4px 20px rgba(30,111,217,0.38);
+}
+
+.btn-secondary{
+  background:rgba(14,27,61,0.75);
+  border:1px solid rgba(74,159,255,0.32);
+}
+
+.btn:hover{
+  transform:translateY(-1px);
+}
+
+.kpi-grid{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:1rem;
+  margin-bottom:1.5rem;
+}
+
+.kpi-card{
+  background:rgba(22,36,81,0.72);
+  border:1px solid rgba(74,159,255,0.13);
+  border-radius:14px;
+  padding:1.15rem 1.2rem;
+  position:relative;
+  overflow:hidden;
+}
+
+.kpi-card::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  height:2px;
+  background:linear-gradient(90deg,var(--blue),var(--purple));
+}
+
+.kpi-label{
+  font-size:0.58rem;
+  font-weight:800;
+  letter-spacing:0.15em;
+  text-transform:uppercase;
+  color:var(--text-muted);
+  margin-bottom:0.5rem;
+}
+
+.kpi-value{
+  font-family:"JetBrains Mono",monospace;
+  font-size:1.45rem;
+  font-weight:800;
+}
+
+.kpi-unit{
+  font-size:0.68rem;
+  color:var(--text-muted);
+  margin-top:2px;
+}
+
+.result-hero{
+  display:none;
+  background:linear-gradient(135deg,rgba(22,36,81,0.92),rgba(30,20,60,0.9));
+  border:1px solid rgba(74,159,255,0.22);
+  border-radius:20px;
+  padding:1.8rem;
+  margin-bottom:1.5rem;
+  animation:fadeUp 0.35s ease;
+}
+
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(14px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+.result-title{
+  font-size:1.45rem;
+  font-weight:800;
+  margin-bottom:0.3rem;
+}
+
+.result-sub{
+  font-size:0.8rem;
+  color:var(--text-muted);
+  margin-bottom:1rem;
+}
+
+.tag-wrap{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-bottom:1.2rem;
+}
+
+.tag{
+  display:inline-flex;
+  align-items:center;
+  padding:4px 11px;
+  border-radius:999px;
+  font-size:0.62rem;
+  font-weight:800;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+}
+
+.tag-blue{
+  background:rgba(30,111,217,0.2);
+  border:1px solid rgba(30,111,217,0.42);
+  color:var(--blue-light);
+}
+
+.tag-purple{
+  background:rgba(123,63,212,0.2);
+  border:1px solid rgba(123,63,212,0.42);
+  color:var(--purple-light);
+}
+
+.tag-green{
+  background:rgba(34,217,122,0.14);
+  border:1px solid rgba(34,217,122,0.38);
+  color:var(--forte);
+}
+
+.school-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1rem;
+}
+
+.school-card{
+  background:rgba(14,27,61,0.55);
+  border:1px solid rgba(74,159,255,0.13);
+  border-radius:13px;
+  padding:1rem;
+}
+
+.school-card .label{
+  font-size:0.58rem;
+  font-weight:800;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  color:var(--text-muted);
+  margin-bottom:0.4rem;
+}
+
+.school-card .value{
+  font-family:"JetBrains Mono",monospace;
+  font-size:1.05rem;
+  font-weight:800;
+}
+
+.school-card .subvalue{
+  font-size:0.68rem;
+  color:var(--text-muted);
+  margin-top:0.2rem;
+}
+
+.metric-table-wrap{
+  background:rgba(22,36,81,0.72);
+  border:1px solid rgba(74,159,255,0.13);
+  border-radius:16px;
+  overflow:hidden;
+  margin-bottom:1.5rem;
+}
+
+.table-title{
+  padding:1rem 1.2rem;
+  border-bottom:1px solid rgba(74,159,255,0.13);
+  font-size:0.7rem;
+  font-weight:800;
+  letter-spacing:0.16em;
+  text-transform:uppercase;
+  color:var(--blue-light);
+}
+
+.table-scroll{
+  overflow:auto;
+  max-height:620px;
+}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+  font-size:0.78rem;
+}
+
+th{
+  position:sticky;
+  top:0;
+  background:#132554;
+  color:var(--blue-light);
+  z-index:2;
+  font-size:0.62rem;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  text-align:left;
+  padding:0.8rem 0.75rem;
+  border-bottom:1px solid rgba(74,159,255,0.25);
+}
+
+td{
+  padding:0.72rem 0.75rem;
+  border-bottom:1px solid rgba(74,159,255,0.08);
+  color:var(--off-white);
+  vertical-align:middle;
+}
+
+tr:hover td{
+  background:rgba(74,159,255,0.06);
+}
+
+td.num, th.num{
+  text-align:right;
+  font-family:"JetBrains Mono",monospace;
+}
+
+.school-name{
+  font-weight:800;
+  color:var(--white);
+}
+
+.small-muted{
+  font-size:0.66rem;
+  color:var(--text-muted);
+}
+
+.ranking-pill{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-width:36px;
+  padding:3px 8px;
+  border-radius:999px;
+  background:rgba(30,111,217,0.18);
+  border:1px solid rgba(74,159,255,0.30);
+  color:var(--blue-light);
+  font-family:"JetBrains Mono",monospace;
+  font-weight:800;
+}
+
+.footer{
+  position:relative;
+  z-index:1;
+  padding:0;
+  background:rgba(240,244,255,0.96);
+  color:#102033;
+}
+
+.footer-pro{
+  max-width:1180px;
+  margin:0 auto;
+  padding:2rem 1.5rem 1.2rem;
+}
+
+.footer-grid{
+  display:grid;
+  grid-template-columns:160px 1fr 1fr;
+  gap:2.2rem;
+  align-items:start;
+}
+
+.footer-logo-img{
+  width:140px;
+  height:140px;
+  max-width:140px;
+  max-height:140px;
+  border-radius:18px;
+  background:#fff;
+  object-fit:contain;
+  padding:10px;
+  box-shadow:0 10px 30px rgba(14,27,61,0.10);
+  display:block;
+}
+
+.footer-heading{
+  font-size:1.2rem;
+  font-weight:800;
+  color:#176B42;
+  line-height:1.35;
+  margin-bottom:1rem;
+}
+
+.footer-list{
+  font-size:0.82rem;
+  line-height:1.85;
+  color:#102033;
+}
+
+.footer-list strong{
+  color:#102033;
+}
+
+.footer-contact-title{
+  font-size:1.2rem;
+  font-weight:800;
+  color:#176B42;
+  margin-bottom:1rem;
+}
+
+.footer-contact-pill{
+  display:block;
+  background:linear-gradient(135deg,#176B42,#041F30);
+  color:#fff;
+  border-radius:10px;
+  padding:0.85rem 1rem;
+  font-weight:800;
+  margin-bottom:0.8rem;
+  letter-spacing:0.02em;
+}
+
+.footer-legal{
+  margin-top:1.2rem;
+  padding:1rem 1.1rem;
+  border-radius:14px;
+  background:rgba(14,27,61,0.05);
+  border:1px solid rgba(23,107,66,0.22);
+  font-size:0.72rem;
+  line-height:1.7;
+  color:#102033;
+}
+
+.footer-bottom{
+  border-top:1px solid rgba(23,107,66,0.35);
+  margin-top:1.8rem;
+  padding-top:1.1rem;
+  text-align:center;
+  font-size:0.72rem;
+  color:#102033;
+}
+
+@media(max-width:900px){
+  .intro-hero{grid-template-columns:1fr;}
+  .kpi-grid{grid-template-columns:repeat(2,1fr);}
+  .school-grid{grid-template-columns:1fr;}
+  .footer-grid{grid-template-columns:1fr;text-align:center;}
+  .footer-logo{margin:0 auto;}
+}
+
+@media(max-width:600px){
+  header{padding:0 1rem;}
+  .header-badge{display:none;}
+  .intro-title{font-size:1.45rem;}
+  .filter-panel{padding:1.25rem;}
+  .kpi-grid{grid-template-columns:1fr;}
+}
+
+/* ============================================================
+   Seção pedagógica por competência e habilidade
+   ============================================================ */
+
+.pedagogico-section{
+  margin-top:28px;
+  padding:24px;
+  border-radius:24px;
+  background:linear-gradient(135deg, rgba(14,27,61,0.96), rgba(30,111,217,0.18));
+  border:1px solid rgba(255,255,255,0.12);
+  box-shadow:0 22px 60px rgba(0,0,0,0.22);
+}
+
+.pedagogico-header{
+  display:flex;
+  justify-content:space-between;
+  gap:18px;
+  align-items:flex-start;
+  margin-bottom:20px;
+}
+
+.pedagogico-title{
+  margin:0;
+  font-size:1.45rem;
+  color:#ffffff;
+}
+
+.pedagogico-subtitle{
+  margin:6px 0 0;
+  color:rgba(255,255,255,0.72);
+  line-height:1.5;
+}
+
+.pedagogico-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:8px 12px;
+  border-radius:999px;
+  background:rgba(79,70,229,0.18);
+  color:#dbeafe;
+  border:1px solid rgba(147,197,253,0.25);
+  font-size:0.82rem;
+  font-weight:700;
+  white-space:nowrap;
+}
+
+.pedagogico-grid{
+  display:grid;
+  grid-template-columns:repeat(4, minmax(0,1fr));
+  gap:14px;
+  margin-bottom:18px;
+}
+
+.pedagogico-card{
+  background:rgba(255,255,255,0.08);
+  border:1px solid rgba(255,255,255,0.10);
+  border-radius:18px;
+  padding:16px;
+}
+
+.pedagogico-card-label{
+  color:rgba(255,255,255,0.62);
+  font-size:0.78rem;
+  text-transform:uppercase;
+  letter-spacing:0.08em;
+  margin-bottom:8px;
+}
+
+.pedagogico-card-value{
+  color:#ffffff;
+  font-size:1.65rem;
+  font-weight:800;
+}
+
+.pedagogico-card-small{
+  color:rgba(255,255,255,0.70);
+  font-size:0.85rem;
+  margin-top:4px;
+}
+
+.pedagogico-controls{
+  display:grid;
+  grid-template-columns:repeat(3, minmax(0,1fr));
+  gap:14px;
+  margin:18px 0;
+}
+
+.pedagogico-controls label{
+  display:block;
+  color:rgba(255,255,255,0.70);
+  font-size:0.78rem;
+  font-weight:700;
+  margin-bottom:6px;
+  text-transform:uppercase;
+  letter-spacing:0.06em;
+}
+
+.pedagogico-controls select{
+  width:100%;
+  padding:11px 12px;
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,0.16);
+  background:rgba(255,255,255,0.10);
+  color:#ffffff;
+  outline:none;
+}
+
+.pedagogico-controls option{
+  color:#0e1b3d;
+}
+
+.pedagogico-content{
+  display:grid;
+  grid-template-columns:1fr 1.2fr;
+  gap:18px;
+}
+
+.pedagogico-panel{
+  background:rgba(255,255,255,0.08);
+  border:1px solid rgba(255,255,255,0.10);
+  border-radius:18px;
+  padding:16px;
+  min-height:180px;
+}
+
+.pedagogico-panel h3{
+  margin:0 0 12px;
+  color:#ffffff;
+  font-size:1rem;
+}
+
+.pedagogico-list{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+.pedagogico-row{
+  display:grid;
+  grid-template-columns:76px 1fr 78px;
+  gap:10px;
+  align-items:center;
+  padding:10px;
+  border-radius:14px;
+  background:rgba(255,255,255,0.06);
+}
+
+.pedagogico-row strong{
+  color:#ffffff;
+}
+
+.pedagogico-row span{
+  color:rgba(255,255,255,0.68);
+  font-size:0.84rem;
+}
+
+.pedagogico-score{
+  text-align:right;
+  color:#ffffff;
+  font-weight:800;
+}
+
+.pedagogico-class{
+  display:inline-flex;
+  padding:4px 8px;
+  border-radius:999px;
+  font-size:0.72rem;
+  font-weight:800;
+  background:rgba(255,255,255,0.10);
+  color:#dbeafe;
+  margin-top:4px;
+}
+
+.pedagogico-texto{
+  color:rgba(255,255,255,0.78);
+  line-height:1.55;
+  margin:0 0 12px;
+}
+
+.pedagogico-table-wrap{
+  margin-top:18px;
+  overflow:auto;
+  border-radius:18px;
+  border:1px solid rgba(255,255,255,0.10);
+}
+
+.pedagogico-table{
+  width:100%;
+  border-collapse:collapse;
+  min-width:900px;
+  background:rgba(255,255,255,0.05);
+}
+
+.pedagogico-table th,
+.pedagogico-table td{
+  padding:10px 12px;
+  border-bottom:1px solid rgba(255,255,255,0.08);
+  text-align:left;
+  color:rgba(255,255,255,0.78);
+  font-size:0.86rem;
+}
+
+.pedagogico-table th{
+  color:#ffffff;
+  background:rgba(255,255,255,0.08);
+  font-weight:800;
+}
+
+.pedagogico-muted{
+  color:rgba(255,255,255,0.56);
+  font-size:0.9rem;
+}
+
+@media (max-width: 980px){
+  .pedagogico-grid,
+  .pedagogico-controls,
+  .pedagogico-content{
+    grid-template-columns:1fr;
+  }
+
+  .pedagogico-header{
+    flex-direction:column;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo-wrap">
+    <img class="logo-img" src="assets/logo-nave.jpeg" alt="Logo NAVE">
+    <div class="logo-text">
+      <div class="title">NAVE</div>
+      <div class="sub">Núcleo de Aprendizagem, Valor e Estratégia</div>
+    </div>
+  </div>
+
+  <div class="header-badge">
+    <span class="dot"></span>
+    ENEM 2025 · Escolas · Ranking
+  </div>
+</header>
+
+<main>
+
+  <section class="intro-hero">
+    <div>
+      <div class="intro-kicker">Painel NAVE · Inteligência Pedagógica</div>
+      <h1 class="intro-title">Painel de Desempenho por Escola no ENEM 2025</h1>
+      <p class="intro-text">
+        Ferramenta de análise educacional para comparar escolas a partir dos microdados do ENEM 2025,
+        com cruzamento pelo Censo Escolar 2025. O painel permite consultar rankings, médias por área,
+        participantes, dependência administrativa, município, UF e indicadores comparativos.
+      </p>
+
+      <div class="intro-metrics">
+        <div class="intro-metric">
+          <strong id="intro-escolas">—</strong>
+          <span>escolas na base</span>
+        </div>
+        <div class="intro-metric">
+          <strong id="intro-participantes">—</strong>
+          <span>participantes com escola</span>
+        </div>
+      </div>
+    </div>
+
+    <aside class="prof-card">
+      <div class="prof-title">NAVE – Núcleo de Aprendizagem, Valor e Estratégia</div>
+      <div class="prof-info">
+        <strong>Prof. Robson Carneiro</strong><br>
+        Inteligência pedagógica, análise de dados educacionais, ENEM, avaliação e intervenção escolar.<br><br>
+        Este painel integra o ecossistema NAVE de ferramentas para professores, escolas e gestores.
+      </div>
+    </aside>
+  </section>
+
+  <section class="legal-notice-card">
+    <div class="legal-notice-title">Metodologia e critérios de leitura</div>
+    <div class="legal-notice-body">
+      <p>
+        O ranking principal considera apenas escolas com <strong>30 ou mais participantes</strong>,
+        buscando maior estabilidade estatística. Escolas com 10 a 29 participantes são classificadas
+        como análise exploratória. Escolas com menos de 10 participantes são mantidas na base, mas
+        sinalizadas como amostra insuficiente.
+      </p>
+      <p>
+        Fonte dos dados: Microdados do ENEM 2025 e Censo Escolar 2025. As análises são organizadas
+        pelo NAVE com finalidade pedagógica, diagnóstica e comparativa.
+      </p>
+    </div>
+  </section>
+
+  <div class="section-label">Filtros de consulta</div>
+
+  <section class="filter-panel">
+    <div class="filter-grid">
+      <div class="filter-group">
+        <label for="filtroUf">UF</label>
+        <select id="filtroUf"></select>
+      </div>
+
+      <div class="filter-group">
+        <label for="filtroMunicipio">Município</label>
+        <select id="filtroMunicipio"></select>
+      </div>
+
+      <div class="filter-group">
+        <label for="filtroDependencia">Dependência</label>
+        <select id="filtroDependencia"></select>
+      </div>
+
+      <div class="filter-group">
+        <label for="filtroCriterio">Critério de amostra</label>
+        <select id="filtroCriterio"></select>
+      </div>
+
+      <div class="filter-group">
+        <label for="filtroOrdenacao">Ordenar por</label>
+        <select id="filtroOrdenacao">
+          <option value="ranking">Ranking Brasil</option>
+          <option value="media_geral">Média geral</option>
+          <option value="media_objetivas">Média objetivas</option>
+          <option value="media_redacao">Redação</option>
+          <option value="media_mt">Matemática</option>
+          <option value="participantes_total">Participantes</option>
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <label for="buscaEscola">Buscar escola</label>
+        <input id="buscaEscola" type="text" placeholder="Digite nome, código ou município">
+      </div>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn btn-primary" onclick="aplicarFiltros()">Aplicar filtros</button>
+      <button class="btn btn-secondary" onclick="limparFiltros()">Limpar</button>
+    </div>
+  </section>
+
+  <section class="kpi-grid">
+    <div class="kpi-card">
+      <div class="kpi-label">Escolas</div>
+      <div class="kpi-value" id="kpiEscolas">—</div>
+      <div class="kpi-unit">no filtro atual</div>
+    </div>
+
+    <div class="kpi-card">
+      <div class="kpi-label">Participantes</div>
+      <div class="kpi-value" id="kpiParticipantes">—</div>
+      <div class="kpi-unit">com escola informada</div>
+    </div>
+
+    <div class="kpi-card">
+      <div class="kpi-label">Média geral</div>
+      <div class="kpi-value" id="kpiMediaGeral">—</div>
+      <div class="kpi-unit">média das escolas</div>
+    </div>
+
+    <div class="kpi-card">
+      <div class="kpi-label">Objetivas</div>
+      <div class="kpi-value" id="kpiObjetivas">—</div>
+      <div class="kpi-unit">CN · CH · LC · MT</div>
+    </div>
+
+    <div class="kpi-card">
+      <div class="kpi-label">Redação</div>
+      <div class="kpi-value" id="kpiRedacao">—</div>
+      <div class="kpi-unit">média das escolas</div>
+    </div>
+  </section>
+
+  <section id="schoolResult" class="result-hero"></section>
+
+  <section class="metric-table-wrap">
+    <div class="table-title">Ranking e comparação das escolas</div>
+    <div class="table-scroll">
+      <table>
+        <thead>
+          <tr>
+            <th class="num">Rank BR</th>
+            <th>Escola</th>
+            <th>Município/UF</th>
+            <th>Dependência</th>
+            <th class="num">N</th>
+            <th class="num">CN</th>
+            <th class="num">CH</th>
+            <th class="num">LC</th>
+            <th class="num">MT</th>
+            <th class="num">Redação</th>
+            <th class="num">Objetivas</th>
+            <th class="num">Geral</th>
+          </tr>
+        </thead>
+        <tbody id="rankingBody"></tbody>
+      </table>
+    </div>
+  </section>
+
+
+<section class="pedagogico-section" id="secaoPedagogica">
+  <div class="pedagogico-header">
+    <div>
+      <h2 class="pedagogico-title">Análise pedagógica por competência e habilidade</h2>
+      <p class="pedagogico-subtitle">
+        Leitura do desempenho da escola a partir das respostas efetivas dos estudantes,
+        com recorte por área, competência, habilidade e item.
+      </p>
+    </div>
+    <div class="pedagogico-badge" id="pedagogicoBadge">COL NACIONAL · 2025</div>
+  </div>
+
+  <div class="pedagogico-grid">
+    <div class="pedagogico-card">
+      <div class="pedagogico-card-label">Áreas avaliadas</div>
+      <div class="pedagogico-card-value" id="pedAreas">-</div>
+      <div class="pedagogico-card-small">CN, CH, LC e MT</div>
+    </div>
+    <div class="pedagogico-card">
+      <div class="pedagogico-card-label">Competências</div>
+      <div class="pedagogico-card-value" id="pedCompetencias">-</div>
+      <div class="pedagogico-card-small">com cálculo válido</div>
+    </div>
+    <div class="pedagogico-card">
+      <div class="pedagogico-card-label">Habilidades</div>
+      <div class="pedagogico-card-value" id="pedHabilidades">-</div>
+      <div class="pedagogico-card-small">com cálculo válido</div>
+    </div>
+    <div class="pedagogico-card">
+      <div class="pedagogico-card-label">Média geral</div>
+      <div class="pedagogico-card-value" id="pedMediaGeral">-</div>
+      <div class="pedagogico-card-small">percentual médio de acerto</div>
+    </div>
+  </div>
+
+  <div class="pedagogico-controls">
+    <div>
+      <label for="pedFiltroArea">Área</label>
+      <select id="pedFiltroArea"></select>
+    </div>
+    <div>
+      <label for="pedFiltroCompetencia">Competência</label>
+      <select id="pedFiltroCompetencia"></select>
+    </div>
+    <div>
+      <label for="pedFiltroHabilidade">Habilidade</label>
+      <select id="pedFiltroHabilidade"></select>
+    </div>
+  </div>
+
+  <div class="pedagogico-content">
+    <div class="pedagogico-panel">
+      <h3>Síntese da área</h3>
+      <div id="pedSinteseArea"></div>
+    </div>
+
+    <div class="pedagogico-panel">
+      <h3>Habilidades da seleção</h3>
+      <div class="pedagogico-list" id="pedListaHabilidades"></div>
+    </div>
+  </div>
+
+  <div class="pedagogico-table-wrap">
+    <table class="pedagogico-table">
+      <thead>
+        <tr>
+          <th>Área</th>
+          <th>Comp.</th>
+          <th>Hab.</th>
+          <th>Item</th>
+          <th>Caderno</th>
+          <th>Questão</th>
+          <th>% escola</th>
+          <th>% Brasil</th>
+          <th>Dif.</th>
+          <th>Classificação</th>
+        </tr>
+      </thead>
+      <tbody id="pedTabelaItens"></tbody>
+    </table>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer-pro">
+    <div class="footer-grid">
+      <img class="footer-logo-img" src="assets/logo-nave.jpeg" alt="Logo NAVE">
+
+      <div>
+        <div class="footer-heading">NAVE — Núcleo de Aprendizagem, Valor e Estratégia</div>
+        <div class="footer-list">
+          <strong>Razão social:</strong> NAVE - Núcleo de Aprendizagem, Valor e Estratégia Ltda.<br>
+          <strong>CNPJ:</strong> 66.684.968/0001-92<br>
+          <strong>Endereço:</strong> Uberlândia/MG<br>
+          <strong>Site:</strong> naveaprendizagem.com
+        </div>
+      </div>
+
+      <div>
+        <div class="footer-contact-title">Contato</div>
+        <div class="footer-contact-pill">WhatsApp: (34) 99645-5647</div>
+        <div class="footer-contact-pill">Instagram: @nave.robson</div>
+        <div class="footer-contact-pill">YouTube: @nave.nucleodeaprendizagem</div>
+        <div class="footer-list">
+          <strong>E-mail:</strong> nave.nucleodeaprendizagem@gmail.com
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-legal">
+      <p>
+        <strong>Aviso de autoria e uso:</strong> este painel é uma ferramenta pedagógica desenvolvida
+        pelo NAVE para análise educacional. A reprodução, adaptação, redistribuição ou exploração
+        comercial não autorizada do layout, organização analítica, textos, estrutura visual e metodologia
+        de apresentação é vedada.
+      </p>
+      <p>
+        Os dados utilizados são oriundos de bases públicas educacionais, reorganizados com finalidade
+        diagnóstica e pedagógica.
+      </p>
+    </div>
+
+    <div class="footer-bottom">
+      © 2025 NAVE – Núcleo de Aprendizagem, Valor e Estratégia. Painel de Desempenho por Escola ENEM 2025.
+    </div>
+  </div>
+</footer>
+
+<script src="2025/base_painel_escolas_2025.js"></script>
+<script src="2025/base_pedagogica_multiescolas_2025.js"></script>
+
+<script>
+const BASE = BASE_PAINEL_ESCOLAS_2025 || [];
+const RESUMO = Array.isArray(RESUMO_PAINEL_ESCOLAS_2025) ? RESUMO_PAINEL_ESCOLAS_2025[0] : RESUMO_PAINEL_ESCOLAS_2025;
+
+let dadosFiltrados = [];
+
+function fmtInt(v){
+  if(v === null || v === undefined || isNaN(v)) return "—";
+  return Number(v).toLocaleString("pt-BR");
+}
+
+function fmtNum(v){
+  if(v === null || v === undefined || isNaN(v)) return "—";
+  return Number(v).toLocaleString("pt-BR",{minimumFractionDigits:1,maximumFractionDigits:1});
+}
+
+function limparTexto(s){
+  return String(s || "")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g,"")
+    .toLowerCase();
+}
+
+function valoresUnicos(campo, base = BASE){
+  return [...new Set(base.map(d => d[campo]).filter(v => v !== null && v !== undefined && v !== ""))]
+    .sort((a,b) => String(a).localeCompare(String(b),"pt-BR"));
+}
+
+function preencherSelect(id, valores, labelTodos){
+  const el = document.getElementById(id);
+  el.innerHTML = "";
+  const optTodos = document.createElement("option");
+  optTodos.value = "";
+  optTodos.textContent = labelTodos;
+  el.appendChild(optTodos);
+
+  valores.forEach(v => {
+    const opt = document.createElement("option");
+    opt.value = v;
+    opt.textContent = v;
+    el.appendChild(opt);
+  });
+}
+
+function inicializarFiltros(){
+  preencherSelect("filtroUf", valoresUnicos("uf"), "Todas as UFs");
+  preencherSelect("filtroMunicipio", valoresUnicos("municipio"), "Todos os municípios");
+  preencherSelect("filtroDependencia", valoresUnicos("dependencia"), "Todas as dependências");
+  preencherSelect("filtroCriterio", valoresUnicos("criterio_amostra"), "Todos os critérios");
+
+  document.getElementById("filtroUf").addEventListener("change", atualizarMunicipiosPorUf);
+  document.getElementById("buscaEscola").addEventListener("keydown", function(e){
+    if(e.key === "Enter") aplicarFiltros();
+  });
+}
+
+function atualizarMunicipiosPorUf(){
+  const uf = document.getElementById("filtroUf").value;
+  const base = uf ? BASE.filter(d => d.uf === uf) : BASE;
+  preencherSelect("filtroMunicipio", valoresUnicos("municipio", base), "Todos os municípios");
+}
+
+function aplicarFiltros(){
+  const uf = document.getElementById("filtroUf").value;
+  const municipio = document.getElementById("filtroMunicipio").value;
+  const dependencia = document.getElementById("filtroDependencia").value;
+  const criterio = document.getElementById("filtroCriterio").value;
+  const busca = limparTexto(document.getElementById("buscaEscola").value);
+  const ordenacao = document.getElementById("filtroOrdenacao").value;
+
+  dadosFiltrados = BASE.filter(d => {
+    if(uf && d.uf !== uf) return false;
+    if(municipio && d.municipio !== municipio) return false;
+    if(dependencia && d.dependencia !== dependencia) return false;
+    if(criterio && d.criterio_amostra !== criterio) return false;
+
+    if(busca){
+      const alvo = limparTexto(
+        `${d.nome_escola} ${d.co_escola} ${d.municipio} ${d.uf} ${d.dependencia}`
+      );
+      if(!alvo.includes(busca)) return false;
+    }
+
+    return true;
+  });
+
+  ordenarDados(ordenacao);
+  atualizarKPIs(dadosFiltrados);
+  renderTabela(dadosFiltrados.slice(0,500));
+
+  if(dadosFiltrados.length === 1){
+    renderEscola(dadosFiltrados[0]);
+  } else {
+    document.getElementById("schoolResult").style.display = "none";
+  }
+}
+
+function ordenarDados(tipo){
+  dadosFiltrados.sort((a,b) => {
+    if(tipo === "ranking"){
+      const ra = a.ranking_brasil_geral || 9999999;
+      const rb = b.ranking_brasil_geral || 9999999;
+      return ra - rb;
+    }
+
+    const va = Number(a[tipo] || -999999);
+    const vb = Number(b[tipo] || -999999);
+    return vb - va;
+  });
+}
+
+function limparFiltros(){
+  document.getElementById("filtroUf").value = "";
+  atualizarMunicipiosPorUf();
+  document.getElementById("filtroMunicipio").value = "";
+  document.getElementById("filtroDependencia").value = "";
+  document.getElementById("filtroCriterio").value = "";
+  document.getElementById("filtroOrdenacao").value = "ranking";
+  document.getElementById("buscaEscola").value = "";
+  aplicarFiltros();
+}
+
+function mediaCampo(base, campo){
+  const vals = base.map(d => Number(d[campo])).filter(v => !isNaN(v));
+  if(vals.length === 0) return null;
+  return vals.reduce((a,b)=>a+b,0) / vals.length;
+}
+
+function atualizarKPIs(base){
+  document.getElementById("kpiEscolas").textContent = fmtInt(base.length);
+  document.getElementById("kpiParticipantes").textContent = fmtInt(base.reduce((s,d)=>s + Number(d.participantes_total || 0),0));
+  document.getElementById("kpiMediaGeral").textContent = fmtNum(mediaCampo(base,"media_geral"));
+  document.getElementById("kpiObjetivas").textContent = fmtNum(mediaCampo(base,"media_objetivas"));
+  document.getElementById("kpiRedacao").textContent = fmtNum(mediaCampo(base,"media_redacao"));
+}
+
+function renderEscola(d){
+  const el = document.getElementById("schoolResult");
+  el.style.display = "block";
+
+  el.innerHTML = `
+    <div class="tag-wrap">
+      <span class="tag tag-blue">${d.uf}</span>
+      <span class="tag tag-purple">${d.dependencia || "Dependência não informada"}</span>
+      <span class="tag tag-green">${d.criterio_amostra}</span>
+    </div>
+
+    <h2 class="result-title">${d.nome_escola}</h2>
+    <div class="result-sub">
+      Código ${d.co_escola} · ${d.municipio}/${d.uf} · ${d.localizacao || "Localização não informada"} · ${d.situacao_funcionamento || ""}
+    </div>
+
+    <div class="school-grid">
+      <div class="school-card">
+        <div class="label">Ranking Brasil</div>
+        <div class="value">${fmtInt(d.ranking_brasil_geral)}</div>
+        <div class="subvalue">critério n ≥ 30</div>
+      </div>
+
+      <div class="school-card">
+        <div class="label">Ranking UF</div>
+        <div class="value">${fmtInt(d.ranking_uf_geral)}</div>
+        <div class="subvalue">${d.uf}</div>
+      </div>
+
+      <div class="school-card">
+        <div class="label">Ranking município</div>
+        <div class="value">${fmtInt(d.ranking_municipio_geral)}</div>
+        <div class="subvalue">${d.municipio}</div>
+      </div>
+
+      <div class="school-card">
+        <div class="label">Participantes</div>
+        <div class="value">${fmtInt(d.participantes_total)}</div>
+        <div class="subvalue">com escola informada</div>
+      </div>
+
+      <div class="school-card">
+        <div class="label">Média geral</div>
+        <div class="value">${fmtNum(d.media_geral)}</div>
+        <div class="subvalue">dif. Brasil: ${fmtNum(d.dif_brasil_geral)}</div>
+      </div>
+
+      <div class="school-card">
+        <div class="label">Objetivas / Redação</div>
+        <div class="value">${fmtNum(d.media_objetivas)} / ${fmtNum(d.media_redacao)}</div>
+        <div class="subvalue">CN · CH · LC · MT · Redação</div>
+      </div>
+    </div>
+  `;
+}
+
+function renderTabela(base){
+  const tbody = document.getElementById("rankingBody");
+  tbody.innerHTML = "";
+
+  if(base.length === 0){
+    tbody.innerHTML = `<tr><td colspan="12">Nenhuma escola encontrada com os filtros selecionados.</td></tr>`;
+    return;
+  }
+
+  base.forEach(d => {
+    const tr = document.createElement("tr");
+    tr.style.cursor = "pointer";
+    tr.onclick = () => renderEscola(d);
+
+    tr.innerHTML = `
+      <td class="num"><span class="ranking-pill">${fmtInt(d.ranking_brasil_geral)}</span></td>
+      <td>
+        <div class="school-name">${d.nome_escola}</div>
+        <div class="small-muted">Código ${d.co_escola} · ${d.criterio_amostra}</div>
+      </td>
+      <td>${d.municipio}<div class="small-muted">${d.uf}</div></td>
+      <td>${d.dependencia || "—"}</td>
+      <td class="num">${fmtInt(d.participantes_total)}</td>
+      <td class="num">${fmtNum(d.media_cn)}</td>
+      <td class="num">${fmtNum(d.media_ch)}</td>
+      <td class="num">${fmtNum(d.media_lc)}</td>
+      <td class="num">${fmtNum(d.media_mt)}</td>
+      <td class="num">${fmtNum(d.media_redacao)}</td>
+      <td class="num">${fmtNum(d.media_objetivas)}</td>
+      <td class="num"><strong>${fmtNum(d.media_geral)}</strong></td>
+    `;
+    tbody.appendChild(tr);
+  });
+}
+
+function inicializarResumo(){
+  if(!RESUMO) return;
+
+  document.getElementById("intro-escolas").textContent = fmtInt(RESUMO.escolas_total);
+  document.getElementById("intro-participantes").textContent = fmtInt(RESUMO.participantes_com_escola);
+}
+
+document.addEventListener("DOMContentLoaded", function(){
+  inicializarResumo();
+  inicializarFiltros();
+  limparFiltros();
+});
+</script>
+
+
+
+
+
+<script>
+(function(){
+  function fmtPct(v){
+    if(v === null || v === undefined || Number.isNaN(Number(v))) return "-";
+    return Number(v).toLocaleString("pt-BR", {minimumFractionDigits:1, maximumFractionDigits:1}) + "%";
+  }
+
+  function fmtNum(v){
+    if(v === null || v === undefined || Number.isNaN(Number(v))) return "-";
+    return Number(v).toLocaleString("pt-BR", {minimumFractionDigits:1, maximumFractionDigits:1});
+  }
+
+  function textoSeguro(v){
+    return (v === null || v === undefined || v === "") ? "-" : String(v);
+  }
+
+  function dadosPedagogicos(){
+    return {
+      resumo: (typeof RESUMO_PEDAGOGICO_MULTIESCOLAS_2025 !== "undefined") ? RESUMO_PEDAGOGICO_MULTIESCOLAS_2025 : [],
+      sintese: (typeof BASE_PEDAGOGICA_SINTESE_AREA_MULTIESCOLAS_2025 !== "undefined") ? BASE_PEDAGOGICA_SINTESE_AREA_MULTIESCOLAS_2025 : [],
+      competencias: (typeof BASE_PEDAGOGICA_COMPETENCIA_MULTIESCOLAS_2025 !== "undefined") ? BASE_PEDAGOGICA_COMPETENCIA_MULTIESCOLAS_2025 : [],
+      habilidades: (typeof BASE_PEDAGOGICA_HABILIDADE_MULTIESCOLAS_2025 !== "undefined") ? BASE_PEDAGOGICA_HABILIDADE_MULTIESCOLAS_2025 : [],
+      itens: (typeof BASE_PEDAGOGICA_ITEM_MULTIESCOLAS_2025 !== "undefined") ? BASE_PEDAGOGICA_ITEM_MULTIESCOLAS_2025 : []
+    };
+  }
+
+  function normalizarTexto(txt){
+    return String(txt || "")
+      .normalize("NFD")
+      .replace(/[̀-ͯ]/g, "")
+      .toUpperCase()
+      .trim();
+  }
+
+  function termoBuscaEscola(){
+    const busca = document.getElementById("buscaEscola");
+    return normalizarTexto(busca ? busca.value : "");
+  }
+
+  function identificarEscolaPedagogica(){
+    const dados = dadosPedagogicos();
+    const termo = termoBuscaEscola();
+
+    if(!termo) return null;
+
+    const escolas = dados.resumo || [];
+
+    // 1. Busca direta por código
+    let encontrada = escolas.find(e => String(e.co_escola) === termo);
+    if(encontrada) return encontrada;
+
+    // 2. Busca por nome
+    encontrada = escolas.find(e => {
+      const nome = normalizarTexto(e.nome_escola);
+      return nome.includes(termo) || termo.includes(nome);
+    });
+
+    if(encontrada) return encontrada;
+
+    // 3. Busca por parte relevante do nome
+    encontrada = escolas.find(e => {
+      const nome = normalizarTexto(e.nome_escola);
+      const partes = termo.split(/s+/).filter(p => p.length >= 4);
+      return partes.length >= 2 && partes.every(p => nome.includes(p));
+    });
+
+    return encontrada || null;
+  }
+
+  function popularSelect(select, valores, rotuloTodos, prefixo){
+    if(!select) return;
+
+    const valorAtual = select.value;
+
+    select.innerHTML = "";
+
+    const optTodos = document.createElement("option");
+    optTodos.value = "";
+    optTodos.textContent = rotuloTodos;
+    select.appendChild(optTodos);
+
+    valores.forEach(v => {
+      const opt = document.createElement("option");
+      opt.value = v;
+      opt.textContent = prefixo ? prefixo + v : v;
+      select.appendChild(opt);
+    });
+
+    if([...select.options].some(o => o.value === valorAtual)){
+      select.value = valorAtual;
+    }
+  }
+
+  function valoresUnicos(arr, campo){
+    return [...new Set(arr.map(d => d[campo]).filter(Boolean))]
+      .sort((a,b) => String(a).localeCompare(String(b), "pt-BR", {numeric:true}));
+  }
+
+  function atualizarFiltrosPedagogicos(escola){
+    const dados = dadosPedagogicos();
+
+    const selArea = document.getElementById("pedFiltroArea");
+    const selComp = document.getElementById("pedFiltroCompetencia");
+    const selHab = document.getElementById("pedFiltroHabilidade");
+
+    const co = String(escola.co_escola);
+
+    const sintese = dados.sintese.filter(d => String(d.co_escola) === co);
+    const competencias = dados.competencias.filter(d => String(d.co_escola) === co);
+    const habilidades = dados.habilidades.filter(d => String(d.co_escola) === co);
+
+    popularSelect(selArea, valoresUnicos(sintese, "area"), "Todas as áreas", "");
+    popularSelect(selComp, valoresUnicos(competencias, "competencia"), "Todas as competências", "");
+    popularSelect(selHab, valoresUnicos(habilidades, "habilidade"), "Todas as habilidades", "H");
+
+    if(selArea && !selArea.value){
+      selArea.value = "CN";
+    }
+  }
+
+  function inicializarPedagogicoMultiescolas(){
+    const selArea = document.getElementById("pedFiltroArea");
+    const selComp = document.getElementById("pedFiltroCompetencia");
+    const selHab = document.getElementById("pedFiltroHabilidade");
+
+    [selArea, selComp, selHab].forEach(el => {
+      if(el) el.addEventListener("change", renderPedagogicoMultiescolas);
+    });
+
+    const busca = document.getElementById("buscaEscola");
+    const botaoAplicar = document.getElementById("btnAplicar");
+    const botaoLimpar = document.getElementById("btnLimpar");
+
+    if(busca){
+      busca.addEventListener("input", function(){
+        setTimeout(renderPedagogicoMultiescolas, 100);
+      });
+      busca.addEventListener("change", function(){
+        setTimeout(renderPedagogicoMultiescolas, 100);
+      });
+    }
+
+    if(botaoAplicar){
+      botaoAplicar.addEventListener("click", function(){
+        setTimeout(renderPedagogicoMultiescolas, 150);
+      });
+    }
+
+    if(botaoLimpar){
+      botaoLimpar.addEventListener("click", function(){
+        setTimeout(renderPedagogicoMultiescolas, 150);
+      });
+    }
+
+    renderPedagogicoMultiescolas();
+  }
+
+  function renderPedagogicoMultiescolas(){
+    const secao = document.getElementById("secaoPedagogica");
+    if(!secao) return;
+
+    const escola = identificarEscolaPedagogica();
+
+    if(!escola){
+      secao.style.display = "none";
+      return;
+    }
+
+    secao.style.display = "";
+
+    atualizarFiltrosPedagogicos(escola);
+
+    const dados = dadosPedagogicos();
+    const co = String(escola.co_escola);
+
+    const badge = document.getElementById("pedagogicoBadge");
+    if(badge){
+      badge.textContent = `${escola.nome_escola} · ${escola.co_escola} · 2025`;
+    }
+
+    const pedAreas = document.getElementById("pedAreas");
+    const pedCompetencias = document.getElementById("pedCompetencias");
+    const pedHabilidades = document.getElementById("pedHabilidades");
+    const pedMediaGeral = document.getElementById("pedMediaGeral");
+
+    if(pedAreas) pedAreas.textContent = escola.areas_avaliadas ?? "-";
+    if(pedCompetencias) pedCompetencias.textContent = escola.competencias_avaliadas ?? "-";
+    if(pedHabilidades) pedHabilidades.textContent = escola.habilidades_avaliadas ?? "-";
+    if(pedMediaGeral) pedMediaGeral.textContent = fmtPct(escola.media_geral_acertos);
+
+    const area = document.getElementById("pedFiltroArea")?.value || "";
+    const competencia = document.getElementById("pedFiltroCompetencia")?.value || "";
+    let habilidade = document.getElementById("pedFiltroHabilidade")?.value || "";
+    habilidade = habilidade.replace(/^H/, "");
+
+    let sintese = dados.sintese.filter(d => String(d.co_escola) === co);
+    let habilidades = dados.habilidades.filter(d => String(d.co_escola) === co);
+    let itens = dados.itens.filter(d => String(d.co_escola) === co);
+
+    if(area){
+      sintese = sintese.filter(d => d.area === area);
+      habilidades = habilidades.filter(d => d.area === area);
+      itens = itens.filter(d => d.area === area);
+    }
+
+    if(competencia){
+      habilidades = habilidades.filter(d => d.competencia === competencia);
+      itens = itens.filter(d => d.competencia === competencia);
+    }
+
+    if(habilidade){
+      habilidades = habilidades.filter(d => String(d.habilidade) === String(habilidade));
+      itens = itens.filter(d => String(d.habilidade) === String(habilidade));
+    }
+
+    renderSintesePedagogica(sintese, area);
+    renderHabilidadesPedagogicas(habilidades);
+    renderItensPedagogicos(itens);
+  }
+
+  function renderSintesePedagogica(sintese, area){
+    const el = document.getElementById("pedSinteseArea");
+    if(!el) return;
+
+    if(!sintese.length){
+      el.innerHTML = '<p class="pedagogico-muted">Nenhum dado encontrado para a seleção.</p>';
+      return;
+    }
+
+    const linhas = sintese.map(d => `
+      <div class="pedagogico-row">
+        <strong>${textoSeguro(d.area)}</strong>
+        <span>${textoSeguro(d.competencias_avaliadas)} competências · ${textoSeguro(d.habilidades_avaliadas)} habilidades<br>
+          <span class="pedagogico-class">${textoSeguro(d.classificacao)}</span>
+        </span>
+        <div class="pedagogico-score">${fmtPct(d.perc_acerto_area)}</div>
+      </div>
+    `).join("");
+
+    const melhor = [...sintese].sort((a,b) => Number(b.perc_acerto_area) - Number(a.perc_acerto_area))[0];
+
+    el.innerHTML = `
+      <p class="pedagogico-texto">
+        ${area ? "Área selecionada" : "Visão geral das áreas"}:
+        <strong style="color:#fff">${textoSeguro(melhor.area)}</strong>
+        apresenta ${fmtPct(melhor.perc_acerto_area)} de acerto.
+      </p>
+      <div class="pedagogico-list">${linhas}</div>
+    `;
+  }
+
+  function renderHabilidadesPedagogicas(habilidades){
+    const el = document.getElementById("pedListaHabilidades");
+    if(!el) return;
+
+    if(!habilidades.length){
+      el.innerHTML = '<p class="pedagogico-muted">Nenhuma habilidade encontrada para a seleção.</p>';
+      return;
+    }
+
+    const ordenadas = [...habilidades]
+      .sort((a,b) => Number(b.perc_acerto_escola) - Number(a.perc_acerto_escola))
+      .slice(0, 12);
+
+    el.innerHTML = ordenadas.map(d => `
+      <div class="pedagogico-row">
+        <strong>${textoSeguro(d.area)}-H${textoSeguro(d.habilidade)}</strong>
+        <span>${textoSeguro(d.competencia)} · ${textoSeguro(d.itens_avaliados)} item(ns)<br>
+          <span class="pedagogico-class">${textoSeguro(d.classificacao)}</span>
+        </span>
+        <div class="pedagogico-score">${fmtPct(d.perc_acerto_escola)}</div>
+      </div>
+    `).join("");
+  }
+
+  function renderItensPedagogicos(itens){
+    const tbody = document.getElementById("pedTabelaItens");
+    if(!tbody) return;
+
+    if(!itens.length){
+      tbody.innerHTML = `
+        <tr>
+          <td colspan="10">Nenhum item encontrado para a seleção.</td>
+        </tr>
+      `;
+      return;
+    }
+
+    const ordenados = [...itens]
+      .sort((a,b) => Number(a.perc_acerto_escola) - Number(b.perc_acerto_escola))
+      .slice(0, 160);
+
+    tbody.innerHTML = ordenados.map(d => `
+      <tr>
+        <td>${textoSeguro(d.area)}</td>
+        <td>${textoSeguro(d.competencia)}</td>
+        <td>H${textoSeguro(d.habilidade)}</td>
+        <td>${textoSeguro(d.co_item)}</td>
+        <td>${textoSeguro(d.cor)}</td>
+        <td>${textoSeguro(d.posicao)}</td>
+        <td>${fmtPct(d.perc_acerto_escola)}</td>
+        <td>${fmtPct(d.taxa_acerto_brasil)}</td>
+        <td>${fmtNum(d.dif_brasil)}</td>
+        <td>${textoSeguro(d.classificacao)}</td>
+      </tr>
+    `).join("");
+  }
+
+  window.addEventListener("DOMContentLoaded", inicializarPedagogicoMultiescolas);
+})();
+</script>
+
+</body>
+</html>
+
