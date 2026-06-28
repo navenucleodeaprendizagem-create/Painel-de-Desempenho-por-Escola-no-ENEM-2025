@@ -911,6 +911,1015 @@ td.num, th.num{
   }
 }
 
+
+/* ============================================================
+   Mapa histórico de habilidades 2016-2025
+   ============================================================ */
+
+.mapa-section{
+  margin-top:28px;
+  padding:24px;
+  border-radius:24px;
+  background:linear-gradient(135deg, rgba(7,28,54,0.96), rgba(15,118,110,0.22));
+  border:1px solid rgba(255,255,255,0.12);
+  box-shadow:0 22px 60px rgba(0,0,0,0.22);
+}
+
+.mapa-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:18px;
+  margin-bottom:20px;
+}
+
+.mapa-title{
+  margin:0;
+  font-size:1.45rem;
+  color:#ffffff;
+}
+
+.mapa-subtitle{
+  margin:6px 0 0;
+  color:rgba(255,255,255,0.72);
+  line-height:1.5;
+}
+
+.mapa-badge{
+  display:inline-flex;
+  padding:8px 12px;
+  border-radius:999px;
+  background:rgba(20,184,166,0.16);
+  color:#ccfbf1;
+  border:1px solid rgba(94,234,212,0.24);
+  font-size:0.82rem;
+  font-weight:800;
+  white-space:nowrap;
+}
+
+.mapa-grid{
+  display:grid;
+  grid-template-columns:repeat(5, minmax(0,1fr));
+  gap:14px;
+  margin-bottom:18px;
+}
+
+.mapa-card{
+  background:rgba(255,255,255,0.08);
+  border:1px solid rgba(255,255,255,0.10);
+  border-radius:18px;
+  padding:16px;
+}
+
+.mapa-card-label{
+  color:rgba(255,255,255,0.62);
+  font-size:0.75rem;
+  text-transform:uppercase;
+  letter-spacing:0.08em;
+  margin-bottom:8px;
+}
+
+.mapa-card-value{
+  color:#ffffff;
+  font-size:1.45rem;
+  font-weight:850;
+}
+
+.mapa-card-small{
+  color:rgba(255,255,255,0.70);
+  font-size:0.82rem;
+  margin-top:4px;
+}
+
+.mapa-controls{
+  display:grid;
+  grid-template-columns:repeat(6, minmax(0,1fr));
+  gap:12px;
+  margin:18px 0;
+}
+
+.mapa-controls label{
+  display:block;
+  color:rgba(255,255,255,0.70);
+  font-size:0.74rem;
+  font-weight:800;
+  margin-bottom:6px;
+  text-transform:uppercase;
+  letter-spacing:0.06em;
+}
+
+.mapa-controls select{
+  width:100%;
+  padding:10px 11px;
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,0.16);
+  background:rgba(255,255,255,0.10);
+  color:#ffffff;
+  outline:none;
+}
+
+.mapa-controls option{
+  color:#0e1b3d;
+}
+
+.mapa-panel{
+  background:rgba(255,255,255,0.08);
+  border:1px solid rgba(255,255,255,0.10);
+  border-radius:18px;
+  padding:16px;
+  margin-top:16px;
+}
+
+.mapa-panel h3{
+  margin:0 0 12px;
+  color:#ffffff;
+  font-size:1rem;
+}
+
+.mapa-table-wrap{
+  overflow:auto;
+  border-radius:18px;
+  border:1px solid rgba(255,255,255,0.10);
+}
+
+.mapa-table{
+  width:100%;
+  border-collapse:collapse;
+  min-width:1050px;
+  background:rgba(255,255,255,0.05);
+}
+
+.mapa-table th,
+.mapa-table td{
+  padding:10px 12px;
+  border-bottom:1px solid rgba(255,255,255,0.08);
+  text-align:left;
+  color:rgba(255,255,255,0.80);
+  font-size:0.84rem;
+}
+
+.mapa-table th{
+  color:#ffffff;
+  background:rgba(255,255,255,0.08);
+  font-weight:850;
+  position:sticky;
+  top:0;
+}
+
+.mapa-pill{
+  display:inline-flex;
+  padding:4px 8px;
+  border-radius:999px;
+  font-size:0.72rem;
+  font-weight:850;
+  background:rgba(255,255,255,0.10);
+  color:#dbeafe;
+  white-space:nowrap;
+}
+
+.mapa-pill-alta{
+  background:rgba(239,68,68,0.18);
+  color:#fecaca;
+  border:1px solid rgba(248,113,113,0.25);
+}
+
+.mapa-pill-media{
+  background:rgba(245,158,11,0.18);
+  color:#fde68a;
+  border:1px solid rgba(251,191,36,0.25);
+}
+
+.mapa-pill-forte{
+  background:rgba(34,197,94,0.18);
+  color:#bbf7d0;
+  border:1px solid rgba(74,222,128,0.25);
+}
+
+.mapa-muted{
+  color:rgba(255,255,255,0.58);
+  font-size:0.9rem;
+}
+
+.mapa-duplo{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px;
+}
+
+@media (max-width: 1100px){
+  .mapa-grid,
+  .mapa-controls,
+  .mapa-duplo{
+    grid-template-columns:1fr;
+  }
+
+  .mapa-header{
+    flex-direction:column;
+  }
+}
+
+
+/* ============================================================
+   Mapa histórico de habilidades 2016-2025 - versão final
+   ============================================================ */
+
+.mapa-section{
+  margin-top:28px;
+  padding:24px;
+  border-radius:24px;
+  background:linear-gradient(135deg, rgba(7,28,54,0.96), rgba(15,118,110,0.22));
+  border:1px solid rgba(255,255,255,0.12);
+  box-shadow:0 22px 60px rgba(0,0,0,0.22);
+  max-width:100%;
+  overflow:hidden;
+}
+
+.mapa-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:18px;
+  margin-bottom:20px;
+}
+
+.mapa-title{
+  margin:0;
+  font-size:1.45rem;
+  color:#ffffff;
+}
+
+.mapa-subtitle{
+  margin:6px 0 0;
+  color:rgba(255,255,255,0.72);
+  line-height:1.5;
+}
+
+.mapa-badge{
+  display:inline-flex;
+  padding:8px 12px;
+  border-radius:999px;
+  background:rgba(20,184,166,0.16);
+  color:#ccfbf1;
+  border:1px solid rgba(94,234,212,0.24);
+  font-size:0.82rem;
+  font-weight:800;
+  white-space:nowrap;
+}
+
+.mapa-grid{
+  display:grid;
+  grid-template-columns:repeat(5, minmax(0,1fr));
+  gap:14px;
+  margin-bottom:18px;
+}
+
+.mapa-card{
+  background:rgba(255,255,255,0.08);
+  border:1px solid rgba(255,255,255,0.10);
+  border-radius:18px;
+  padding:16px;
+}
+
+.mapa-card-label{
+  color:rgba(255,255,255,0.62);
+  font-size:0.75rem;
+  text-transform:uppercase;
+  letter-spacing:0.08em;
+  margin-bottom:8px;
+}
+
+.mapa-card-value{
+  color:#ffffff;
+  font-size:1.45rem;
+  font-weight:850;
+}
+
+.mapa-card-small{
+  color:rgba(255,255,255,0.70);
+  font-size:0.82rem;
+  margin-top:4px;
+}
+
+.mapa-controls{
+  display:grid;
+  grid-template-columns:repeat(6, minmax(0,1fr));
+  gap:12px;
+  margin:18px 0;
+}
+
+.mapa-controls label{
+  display:block;
+  color:rgba(255,255,255,0.70);
+  font-size:0.74rem;
+  font-weight:800;
+  margin-bottom:6px;
+  text-transform:uppercase;
+  letter-spacing:0.06em;
+}
+
+.mapa-controls select{
+  width:100%;
+  padding:10px 11px;
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,0.16);
+  background:rgba(255,255,255,0.10);
+  color:#ffffff;
+  outline:none;
+}
+
+.mapa-controls option{
+  color:#0e1b3d;
+}
+
+.mapa-panel{
+  background:rgba(255,255,255,0.08);
+  border:1px solid rgba(255,255,255,0.10);
+  border-radius:18px;
+  padding:16px;
+  margin-top:16px;
+  min-width:0;
+}
+
+.mapa-panel h3{
+  margin:0 0 12px;
+  color:#ffffff;
+  font-size:1rem;
+}
+
+.mapa-table-wrap{
+  max-width:100%;
+  overflow-x:auto;
+  border-radius:18px;
+  border:1px solid rgba(255,255,255,0.10);
+}
+
+.mapa-table{
+  width:100%;
+  border-collapse:collapse;
+  min-width:980px;
+  background:rgba(255,255,255,0.05);
+}
+
+.mapa-table th,
+.mapa-table td{
+  padding:10px 12px;
+  border-bottom:1px solid rgba(255,255,255,0.08);
+  text-align:left;
+  color:rgba(255,255,255,0.80);
+  font-size:0.84rem;
+  white-space:nowrap;
+}
+
+.mapa-table th{
+  color:#ffffff;
+  background:rgba(255,255,255,0.08);
+  font-weight:850;
+}
+
+.mapa-pill{
+  display:inline-flex;
+  padding:4px 8px;
+  border-radius:999px;
+  font-size:0.72rem;
+  font-weight:850;
+  background:rgba(255,255,255,0.10);
+  color:#dbeafe;
+  white-space:nowrap;
+}
+
+.mapa-pill-alta{
+  background:rgba(239,68,68,0.18);
+  color:#fecaca;
+  border:1px solid rgba(248,113,113,0.25);
+}
+
+.mapa-pill-media{
+  background:rgba(245,158,11,0.18);
+  color:#fde68a;
+  border:1px solid rgba(251,191,36,0.25);
+}
+
+.mapa-pill-forte{
+  background:rgba(34,197,94,0.18);
+  color:#bbf7d0;
+  border:1px solid rgba(74,222,128,0.25);
+}
+
+.mapa-duplo{
+  display:grid;
+  grid-template-columns:minmax(0,0.9fr) minmax(0,1.1fr);
+  gap:16px;
+  width:100%;
+  max-width:100%;
+  overflow:hidden;
+}
+
+@media (max-width: 1200px){
+  .mapa-grid,
+  .mapa-controls,
+  .mapa-duplo{
+    grid-template-columns:1fr;
+  }
+
+  .mapa-header{
+    flex-direction:column;
+  }
+}
+
+
+/* ============================================================
+   Mapa histórico de habilidades 2016-2025 - versão final
+   ============================================================ */
+
+.mapa-section{
+  margin-top:28px;
+  padding:24px;
+  border-radius:24px;
+  background:linear-gradient(135deg, rgba(7,28,54,0.96), rgba(15,118,110,0.22));
+  border:1px solid rgba(255,255,255,0.12);
+  box-shadow:0 22px 60px rgba(0,0,0,0.22);
+  max-width:100%;
+  overflow:hidden;
+}
+
+.mapa-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:18px;
+  margin-bottom:20px;
+}
+
+.mapa-title{
+  margin:0;
+  font-size:1.45rem;
+  color:#ffffff;
+}
+
+.mapa-subtitle{
+  margin:6px 0 0;
+  color:rgba(255,255,255,0.72);
+  line-height:1.5;
+}
+
+.mapa-badge{
+  display:inline-flex;
+  padding:8px 12px;
+  border-radius:999px;
+  background:rgba(20,184,166,0.16);
+  color:#ccfbf1;
+  border:1px solid rgba(94,234,212,0.24);
+  font-size:0.82rem;
+  font-weight:800;
+  white-space:nowrap;
+}
+
+.mapa-grid{
+  display:grid;
+  grid-template-columns:repeat(5, minmax(0,1fr));
+  gap:14px;
+  margin-bottom:18px;
+}
+
+.mapa-card{
+  background:rgba(255,255,255,0.08);
+  border:1px solid rgba(255,255,255,0.10);
+  border-radius:18px;
+  padding:16px;
+}
+
+.mapa-card-label{
+  color:rgba(255,255,255,0.62);
+  font-size:0.75rem;
+  text-transform:uppercase;
+  letter-spacing:0.08em;
+  margin-bottom:8px;
+}
+
+.mapa-card-value{
+  color:#ffffff;
+  font-size:1.45rem;
+  font-weight:850;
+}
+
+.mapa-card-small{
+  color:rgba(255,255,255,0.70);
+  font-size:0.82rem;
+  margin-top:4px;
+}
+
+.mapa-controls{
+  display:grid;
+  grid-template-columns:repeat(6, minmax(0,1fr));
+  gap:12px;
+  margin:18px 0;
+}
+
+.mapa-controls label{
+  display:block;
+  color:rgba(255,255,255,0.70);
+  font-size:0.74rem;
+  font-weight:800;
+  margin-bottom:6px;
+  text-transform:uppercase;
+  letter-spacing:0.06em;
+}
+
+.mapa-controls select{
+  width:100%;
+  padding:10px 11px;
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,0.16);
+  background:rgba(255,255,255,0.10);
+  color:#ffffff;
+  outline:none;
+}
+
+.mapa-controls option{
+  color:#0e1b3d;
+}
+
+.mapa-panel{
+  background:rgba(255,255,255,0.08);
+  border:1px solid rgba(255,255,255,0.10);
+  border-radius:18px;
+  padding:16px;
+  margin-top:16px;
+  min-width:0;
+}
+
+.mapa-panel h3{
+  margin:0 0 12px;
+  color:#ffffff;
+  font-size:1rem;
+}
+
+.mapa-table-wrap{
+  max-width:100%;
+  overflow-x:auto;
+  border-radius:18px;
+  border:1px solid rgba(255,255,255,0.10);
+}
+
+.mapa-table{
+  width:100%;
+  border-collapse:collapse;
+  min-width:980px;
+  background:rgba(255,255,255,0.05);
+}
+
+.mapa-table th,
+.mapa-table td{
+  padding:10px 12px;
+  border-bottom:1px solid rgba(255,255,255,0.08);
+  text-align:left;
+  color:rgba(255,255,255,0.80);
+  font-size:0.84rem;
+  white-space:nowrap;
+}
+
+.mapa-table th{
+  color:#ffffff;
+  background:rgba(255,255,255,0.08);
+  font-weight:850;
+}
+
+.mapa-pill{
+  display:inline-flex;
+  padding:4px 8px;
+  border-radius:999px;
+  font-size:0.72rem;
+  font-weight:850;
+  background:rgba(255,255,255,0.10);
+  color:#dbeafe;
+  white-space:nowrap;
+}
+
+.mapa-pill-alta{
+  background:rgba(239,68,68,0.18);
+  color:#fecaca;
+  border:1px solid rgba(248,113,113,0.25);
+}
+
+.mapa-pill-media{
+  background:rgba(245,158,11,0.18);
+  color:#fde68a;
+  border:1px solid rgba(251,191,36,0.25);
+}
+
+.mapa-pill-forte{
+  background:rgba(34,197,94,0.18);
+  color:#bbf7d0;
+  border:1px solid rgba(74,222,128,0.25);
+}
+
+.mapa-duplo{
+  display:grid;
+  grid-template-columns:minmax(0,0.9fr) minmax(0,1.1fr);
+  gap:16px;
+  width:100%;
+  max-width:100%;
+  overflow:hidden;
+}
+
+@media (max-width: 1200px){
+  .mapa-grid,
+  .mapa-controls,
+  .mapa-duplo{
+    grid-template-columns:1fr;
+  }
+
+  .mapa-header{
+    flex-direction:column;
+  }
+}
+
+
+
+/* ============================================================
+   Ajuste fino do Mapa Histórico: sem rolagem horizontal
+   ============================================================ */
+#secaoMapaHabilidades{
+  max-width:100%;
+}
+
+#secaoMapaHabilidades .mapa-panel{
+  padding:14px;
+}
+
+#secaoMapaHabilidades .mapa-table-wrap{
+  overflow-x:hidden !important;
+  max-width:100%;
+}
+
+#secaoMapaHabilidades .mapa-table{
+  width:100% !important;
+  min-width:0 !important;
+  table-layout:fixed;
+  border-collapse:collapse;
+}
+
+#secaoMapaHabilidades .mapa-table th,
+#secaoMapaHabilidades .mapa-table td{
+  padding:7px 8px;
+  font-size:0.70rem;
+  line-height:1.22;
+  white-space:normal !important;
+  word-break:normal;
+  overflow-wrap:anywhere;
+  vertical-align:middle;
+}
+
+#secaoMapaHabilidades .mapa-table th{
+  font-size:0.66rem;
+  letter-spacing:0.03em;
+}
+
+#secaoMapaHabilidades .mapa-pill{
+  max-width:100%;
+  font-size:0.62rem;
+  padding:3px 6px;
+  line-height:1.15;
+  white-space:normal;
+}
+
+/* As duas tabelas inferiores passam a ocupar a largura inteira.
+   Isso elimina a rolagem horizontal e preserva todas as colunas visíveis. */
+#secaoMapaHabilidades .mapa-duplo{
+  grid-template-columns:1fr !important;
+  gap:14px;
+}
+
+/* Larguras proporcionais da tabela Habilidades históricas */
+#secaoMapaHabilidades .mapa-table-habilidades th:nth-child(1),
+#secaoMapaHabilidades .mapa-table-habilidades td:nth-child(1){width:7%;}
+#secaoMapaHabilidades .mapa-table-habilidades th:nth-child(2),
+#secaoMapaHabilidades .mapa-table-habilidades td:nth-child(2){width:7%;}
+#secaoMapaHabilidades .mapa-table-habilidades th:nth-child(3),
+#secaoMapaHabilidades .mapa-table-habilidades td:nth-child(3){width:7%;}
+#secaoMapaHabilidades .mapa-table-habilidades th:nth-child(4),
+#secaoMapaHabilidades .mapa-table-habilidades td:nth-child(4){width:7%;}
+#secaoMapaHabilidades .mapa-table-habilidades th:nth-child(5),
+#secaoMapaHabilidades .mapa-table-habilidades td:nth-child(5){width:11%;}
+#secaoMapaHabilidades .mapa-table-habilidades th:nth-child(6),
+#secaoMapaHabilidades .mapa-table-habilidades td:nth-child(6){width:12%;}
+#secaoMapaHabilidades .mapa-table-habilidades th:nth-child(7),
+#secaoMapaHabilidades .mapa-table-habilidades td:nth-child(7){width:13%;}
+#secaoMapaHabilidades .mapa-table-habilidades th:nth-child(8),
+#secaoMapaHabilidades .mapa-table-habilidades td:nth-child(8){width:15%;}
+#secaoMapaHabilidades .mapa-table-habilidades th:nth-child(9),
+#secaoMapaHabilidades .mapa-table-habilidades td:nth-child(9){width:10%;}
+#secaoMapaHabilidades .mapa-table-habilidades th:nth-child(10),
+#secaoMapaHabilidades .mapa-table-habilidades td:nth-child(10){width:11%;}
+
+/* Larguras proporcionais da tabela Competências históricas */
+#secaoMapaHabilidades .mapa-table-competencias th:nth-child(1),
+#secaoMapaHabilidades .mapa-table-competencias td:nth-child(1){width:10%;}
+#secaoMapaHabilidades .mapa-table-competencias th:nth-child(2),
+#secaoMapaHabilidades .mapa-table-competencias td:nth-child(2){width:10%;}
+#secaoMapaHabilidades .mapa-table-competencias th:nth-child(3),
+#secaoMapaHabilidades .mapa-table-competencias td:nth-child(3){width:12%;}
+#secaoMapaHabilidades .mapa-table-competencias th:nth-child(4),
+#secaoMapaHabilidades .mapa-table-competencias td:nth-child(4){width:12%;}
+#secaoMapaHabilidades .mapa-table-competencias th:nth-child(5),
+#secaoMapaHabilidades .mapa-table-competencias td:nth-child(5){width:14%;}
+#secaoMapaHabilidades .mapa-table-competencias th:nth-child(6),
+#secaoMapaHabilidades .mapa-table-competencias td:nth-child(6){width:20%;}
+#secaoMapaHabilidades .mapa-table-competencias th:nth-child(7),
+#secaoMapaHabilidades .mapa-table-competencias td:nth-child(7){width:22%;}
+
+@media (max-width: 760px){
+  #secaoMapaHabilidades .mapa-table th,
+  #secaoMapaHabilidades .mapa-table td{
+    padding:6px 5px;
+    font-size:0.62rem;
+  }
+
+  #secaoMapaHabilidades .mapa-table th{
+    font-size:0.58rem;
+  }
+}
+
+
+/* ============================================================
+   Nota metodológica do Mapa Histórico
+   ============================================================ */
+#secaoMapaHabilidades .mapa-nota-metodologica{
+  margin:12px 0 12px;
+  padding:11px 13px;
+  border-radius:14px;
+  background:rgba(20,184,166,0.10);
+  border:1px solid rgba(94,234,212,0.20);
+  color:rgba(255,255,255,0.72);
+  font-size:0.74rem;
+  line-height:1.45;
+}
+
+#secaoMapaHabilidades .mapa-nota-metodologica strong{
+  color:#ccfbf1;
+}
+
+
+
+/* ============================================================
+   Gráfico de frequência do mapa histórico
+   ============================================================ */
+.mapa-chart-wrap{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  min-height:220px;
+}
+
+.mapa-chart-empty{
+  padding:16px;
+  border-radius:14px;
+  background:rgba(255,255,255,0.05);
+  border:1px dashed rgba(255,255,255,0.14);
+  color:rgba(255,255,255,0.70);
+  font-size:0.9rem;
+}
+
+.mapa-chart-row{
+  display:grid;
+  grid-template-columns:58px minmax(0,1fr) 56px;
+  gap:10px;
+  align-items:center;
+}
+
+.mapa-chart-year{
+  font-family:"JetBrains Mono", monospace;
+  color:#ffffff;
+  font-size:0.84rem;
+  font-weight:700;
+}
+
+.mapa-chart-track{
+  position:relative;
+  width:100%;
+  height:28px;
+  border-radius:999px;
+  overflow:hidden;
+  background:rgba(255,255,255,0.08);
+  border:1px solid rgba(255,255,255,0.08);
+}
+
+.mapa-chart-bar{
+  position:absolute;
+  top:0;
+  left:0;
+  height:100%;
+  min-width:0;
+  border-radius:999px;
+  background:linear-gradient(90deg, rgba(20,184,166,0.95), rgba(59,130,246,0.95));
+  box-shadow:0 6px 18px rgba(20,184,166,0.18);
+}
+
+.mapa-chart-value{
+  text-align:right;
+  font-family:"JetBrains Mono", monospace;
+  color:#dbeafe;
+  font-size:0.84rem;
+  font-weight:800;
+}
+
+.mapa-chart-caption{
+  margin-top:6px;
+  color:rgba(255,255,255,0.62);
+  font-size:0.76rem;
+  line-height:1.5;
+}
+
+@media (max-width: 760px){
+  .mapa-chart-row{
+    grid-template-columns:48px minmax(0,1fr) 44px;
+    gap:8px;
+  }
+  .mapa-chart-year,
+  .mapa-chart-value{
+    font-size:0.76rem;
+  }
+}
+
+
+
+/* ============================================================
+   Gráfico comparativo de habilidades do mapa histórico
+   ============================================================ */
+.mapa-bar-chart-wrap{
+  width:100%;
+}
+
+.mapa-bar-chart-empty{
+  padding:16px;
+  border-radius:14px;
+  background:rgba(255,255,255,0.05);
+  border:1px dashed rgba(255,255,255,0.14);
+  color:rgba(255,255,255,0.70);
+  font-size:0.9rem;
+}
+
+.mapa-bar-chart{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:8px;
+  height:290px;
+  padding:14px 10px 6px;
+  border-radius:16px;
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.08);
+  overflow-x:auto;
+}
+
+.mapa-bar-col{
+  flex:1 0 28px;
+  min-width:28px;
+  max-width:34px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:flex-end;
+  gap:8px;
+}
+
+.mapa-bar-value{
+  font-family:"JetBrains Mono", monospace;
+  color:#dbeafe;
+  font-size:0.72rem;
+  font-weight:800;
+  line-height:1;
+}
+
+.mapa-bar-stick{
+  width:100%;
+  border-radius:10px 10px 4px 4px;
+  min-height:10px;
+  background:linear-gradient(180deg, rgba(20,184,166,0.95), rgba(59,130,246,0.95));
+  box-shadow:0 8px 18px rgba(20,184,166,0.14);
+}
+
+.mapa-bar-col.is-selected .mapa-bar-stick{
+  background:linear-gradient(180deg, rgba(251,191,36,0.98), rgba(239,68,68,0.98));
+  box-shadow:0 8px 22px rgba(239,68,68,0.22);
+}
+
+.mapa-bar-col.is-selected .mapa-bar-value,
+.mapa-bar-col.is-selected .mapa-bar-label{
+  color:#fde68a;
+}
+
+.mapa-bar-label{
+  font-family:"JetBrains Mono", monospace;
+  color:rgba(255,255,255,0.86);
+  font-size:0.68rem;
+  font-weight:800;
+  writing-mode:vertical-rl;
+  transform:rotate(180deg);
+  letter-spacing:0.02em;
+}
+
+.mapa-bar-caption{
+  margin-top:10px;
+  color:rgba(255,255,255,0.64);
+  font-size:0.76rem;
+  line-height:1.55;
+}
+
+@media (max-width: 760px){
+  .mapa-bar-chart{
+    height:250px;
+    gap:6px;
+    padding:12px 6px 4px;
+  }
+
+  .mapa-bar-col{
+    min-width:24px;
+    max-width:28px;
+  }
+
+  .mapa-bar-value{ font-size:0.66rem; }
+  .mapa-bar-label{ font-size:0.62rem; }
+}
+
+
+
+/* Ajuste final: cabeçalho compacto da tabela Habilidades históricas */
+#secaoMapaHabilidades .mapa-table-habilidades thead tr{
+  height:auto !important;
+}
+
+#secaoMapaHabilidades .mapa-table-habilidades th{
+  height:auto !important;
+  min-height:0 !important;
+  padding:7px 8px !important;
+  line-height:1.08 !important;
+  vertical-align:middle !important;
+}
+
+#secaoMapaHabilidades .mapa-table-habilidades td{
+  padding:7px 8px !important;
+  line-height:1.15 !important;
+  vertical-align:middle !important;
+}
+
+#secaoMapaHabilidades .mapa-table-habilidades th:nth-child(1),
+#secaoMapaHabilidades .mapa-table-habilidades td:nth-child(1){width:7%;}
+#secaoMapaHabilidades .mapa-table-habilidades th:nth-child(2),
+#secaoMapaHabilidades .mapa-table-habilidades td:nth-child(2){width:7%;}
+#secaoMapaHabilidades .mapa-table-habilidades th:nth-child(3),
+#secaoMapaHabilidades .mapa-table-habilidades td:nth-child(3){width:7%;}
+#secaoMapaHabilidades .mapa-table-habilidades th:nth-child(4),
+#secaoMapaHabilidades .mapa-table-habilidades td:nth-child(4){width:7%;}
+#secaoMapaHabilidades .mapa-table-habilidades th:nth-child(5),
+#secaoMapaHabilidades .mapa-table-habilidades td:nth-child(5){width:12%;}
+#secaoMapaHabilidades .mapa-table-habilidades th:nth-child(6),
+#secaoMapaHabilidades .mapa-table-habilidades td:nth-child(6){width:13%;}
+#secaoMapaHabilidades .mapa-table-habilidades th:nth-child(7),
+#secaoMapaHabilidades .mapa-table-habilidades td:nth-child(7){width:13%;}
+#secaoMapaHabilidades .mapa-table-habilidades th:nth-child(8),
+#secaoMapaHabilidades .mapa-table-habilidades td:nth-child(8){width:14%;}
+#secaoMapaHabilidades .mapa-table-habilidades th:nth-child(9),
+#secaoMapaHabilidades .mapa-table-habilidades td:nth-child(9){width:10%;}
+#secaoMapaHabilidades .mapa-table-habilidades th:nth-child(10),
+#secaoMapaHabilidades .mapa-table-habilidades td:nth-child(10){width:10%;}
+
+
+
+/* Ajuste fino: evitar quebra da coluna Classificação */
+#secaoMapaHabilidades .mapa-table-habilidades th:nth-child(9),
+#secaoMapaHabilidades .mapa-table-habilidades td:nth-child(9){
+  width:14% !important;
+  white-space:nowrap !important;
+  overflow-wrap:normal !important;
+  word-break:normal !important;
+}
+
+#secaoMapaHabilidades .mapa-table-habilidades th:nth-child(10),
+#secaoMapaHabilidades .mapa-table-habilidades td:nth-child(10){
+  width:9% !important;
+}
+
+#secaoMapaHabilidades .mapa-table-habilidades th:nth-child(8),
+#secaoMapaHabilidades .mapa-table-habilidades td:nth-child(8){
+  width:13% !important;
+}
+
+#secaoMapaHabilidades .mapa-table-habilidades th:nth-child(6),
+#secaoMapaHabilidades .mapa-table-habilidades td:nth-child(6){
+  width:12% !important;
+}
+
+#secaoMapaHabilidades .mapa-table-habilidades th:nth-child(7),
+#secaoMapaHabilidades .mapa-table-habilidades td:nth-child(7){
+  width:12% !important;
+}
+
+#secaoMapaHabilidades .mapa-table-habilidades th:nth-child(9){
+  font-size:0.62rem !important;
+  letter-spacing:0.01em !important;
+}
+
 </style>
 </head>
 
@@ -1172,6 +2181,137 @@ td.num, th.num{
   </div>
 </section>
 
+
+
+
+
+
+
+
+
+
+
+<section class="mapa-section" id="secaoMapaHabilidades">
+  <div class="mapa-header">
+    <div>
+      <h2 class="mapa-title">Mapa Histórico de Habilidades ENEM 2016–2025</h2>
+      <p class="mapa-subtitle">
+        Consulta histórica da recorrência, dificuldade, percentual de acerto, discriminação e prioridade pedagógica
+        das habilidades avaliadas no ENEM.
+      </p>
+    </div>
+    <div class="mapa-badge">ENEM 2016–2025 · NAVE</div>
+  </div>
+
+  <div class="mapa-grid">
+    <div class="mapa-card">
+      <div class="mapa-card-label">Anos</div>
+      <div class="mapa-card-value" id="mapaTotalAnos">-</div>
+      <div class="mapa-card-small">período histórico</div>
+    </div>
+    <div class="mapa-card">
+      <div class="mapa-card-label">Itens</div>
+      <div class="mapa-card-value" id="mapaTotalItens">-</div>
+      <div class="mapa-card-small">itens mapeados</div>
+    </div>
+    <div class="mapa-card">
+      <div class="mapa-card-label">Habilidades</div>
+      <div class="mapa-card-value" id="mapaTotalHabilidades">-</div>
+      <div class="mapa-card-small">habilidades ENEM</div>
+    </div>
+    <div class="mapa-card">
+      <div class="mapa-card-label">Competências</div>
+      <div class="mapa-card-value" id="mapaTotalCompetencias">-</div>
+      <div class="mapa-card-small">competências mapeadas</div>
+    </div>
+    <div class="mapa-card">
+      <div class="mapa-card-label">Alta prioridade</div>
+      <div class="mapa-card-value" id="mapaAltaPrioridade">-</div>
+      <div class="mapa-card-small">habilidades críticas/recorrentes</div>
+    </div>
+  </div>
+
+  <div class="mapa-controls">
+    <div>
+      <label for="mapaFiltroArea">Área</label>
+      <select id="mapaFiltroArea"></select>
+    </div>
+    <div>
+      <label for="mapaFiltroCompetencia">Competência</label>
+      <select id="mapaFiltroCompetencia"></select>
+    </div>
+    <div>
+      <label for="mapaFiltroHabilidade">Habilidade</label>
+      <select id="mapaFiltroHabilidade"></select>
+    </div>
+    <div>
+      <label for="mapaFiltroPrioridade">Prioridade</label>
+      <select id="mapaFiltroPrioridade"></select>
+    </div>
+    <div>
+      <label for="mapaFiltroRecorrencia">Recorrência</label>
+      <select id="mapaFiltroRecorrencia"></select>
+    </div>
+    <div>
+      <label for="mapaFiltroClassificacao">Classificação</label>
+      <select id="mapaFiltroClassificacao"></select>
+    </div>
+  </div>
+
+  <div class="mapa-panel">
+    <h3>Habilidades históricas</h3>
+    <div class="mapa-table-wrap">
+      <table class="mapa-table mapa-table-habilidades">
+        <thead>
+          <tr>
+            <th>Área</th>
+            <th>Comp.</th>
+            <th>Hab.</th>
+            <th>Anos</th>
+            <th>Itens válidos</th>
+            <th>% acerto hist.</th>
+            <th>Dif. TRI média</th>
+            <th>Recorrência</th>
+            <th>Classificação</th>
+            <th>Prioridade</th>
+          </tr>
+        </thead>
+        <tbody id="mapaTabelaHabilidades"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="mapa-duplo">
+    <div class="mapa-panel">
+      <h3>Competências históricas</h3>
+      <div class="mapa-table-wrap">
+        <table class="mapa-table mapa-table-competencias">
+          <thead>
+            <tr>
+              <th>Área</th>
+              <th>Comp.</th>
+              <th>Hab.</th>
+              <th>Itens</th>
+              <th>% acerto</th>
+              <th>Alta prioridade</th>
+              <th>Classificação</th>
+            </tr>
+          </thead>
+          <tbody id="mapaTabelaCompetencias"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="mapa-panel">
+      <h3>Comparativo de habilidades da área</h3>
+      <p class="mapa-muted" id="mapaGraficoDescricao" style="margin-bottom:12px;">
+        O gráfico compara a quantidade histórica de itens válidos por habilidade dentro da área selecionada.
+      </p>
+      <div id="mapaGraficoHabilidades" class="mapa-bar-chart-wrap"></div>
+    </div>
+  </div>
+</section>
+
 </main>
 
 <footer class="footer">
@@ -1221,6 +2361,9 @@ td.num, th.num{
 
 <script src="2025/base_painel_escolas_2025.js"></script>
 <script src="2025/base_pedagogica_multiescolas_2025.js"></script>
+<script src="2025/mapa_habilidades_2016_2025.js"></script>
+
+
 
 <script>
 const BASE = BASE_PAINEL_ESCOLAS_2025 || [];
@@ -1776,6 +2919,412 @@ document.addEventListener("DOMContentLoaded", function(){
   }
 
   window.addEventListener("DOMContentLoaded", inicializarPedagogicoMultiescolas);
+})();
+</script>
+
+
+
+
+
+
+
+
+
+
+
+<script>
+(function(){
+  function dadosMapa(){
+    return {
+      resumo: (typeof RESUMO_MAPA_HABILIDADES_2016_2025 !== "undefined") ? RESUMO_MAPA_HABILIDADES_2016_2025 : [],
+      itens: (typeof MAPA_HISTORICO_ITENS_2016_2025 !== "undefined") ? MAPA_HISTORICO_ITENS_2016_2025 : [],
+      habHist: (typeof MAPA_HABILIDADES_HISTORICO_2016_2025 !== "undefined") ? MAPA_HABILIDADES_HISTORICO_2016_2025 : [],
+      compHist: (typeof MAPA_COMPETENCIAS_HISTORICO_2016_2025 !== "undefined") ? MAPA_COMPETENCIAS_HISTORICO_2016_2025 : []
+    };
+  }
+
+  function fmtNum(v, casas = 1){
+    if(v === null || v === undefined || v === "" || Number.isNaN(Number(v))) return "-";
+    return Number(v).toLocaleString("pt-BR", {
+      minimumFractionDigits: casas,
+      maximumFractionDigits: casas
+    });
+  }
+
+  function fmtPct(v){
+    if(v === null || v === undefined || v === "" || Number.isNaN(Number(v))) return "-";
+    return fmtNum(v, 1) + "%";
+  }
+
+  function fmtPctND(v){
+    if(v === null || v === undefined || v === "" || Number.isNaN(Number(v))) return "N/D";
+    return fmtNum(v, 1) + "%";
+  }
+
+  function texto(v){
+    return (v === null || v === undefined || v === "") ? "-" : String(v);
+  }
+
+  function textoND(v){
+    return (v === null || v === undefined || v === "") ? "N/D" : String(v);
+  }
+
+  function normalizar(v){
+    return String(v ?? "")
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .trim()
+      .toUpperCase();
+  }
+
+  function mesmoValor(a, b){
+    if(!b) return true;
+    return normalizar(a) === normalizar(b);
+  }
+
+  function habilidadeValor(d){
+    const h = d.habilidade_label ?? d.habilidade;
+    return String(h ?? "").replace(/^H/i, "");
+  }
+
+  function habilidadeLabel(d){
+    const h = habilidadeValor(d);
+    return h ? `H${h}` : "-";
+  }
+
+  function corValor(d){
+    return d.cor_caderno ?? d.cor ?? "";
+  }
+
+  function normalizarCorCaderno(v){
+    const raw = String(v ?? "").trim();
+    if(!raw) return "";
+
+    const base = raw
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .toUpperCase();
+
+    const mapa = {
+      "AMARELA": "Amarela",
+      "AMARELO": "Amarela",
+      "AZUL": "Azul",
+      "BRANCA": "Branca",
+      "BRANCO": "Branca",
+      "CINZA": "Cinza",
+      "ROSA": "Rosa",
+      "ROXO": "Roxo",
+      "LARANJA": "Laranja",
+      "VERDE": "Verde"
+    };
+
+    return mapa[base] || raw.charAt(0).toUpperCase() + raw.slice(1).toLowerCase();
+  }
+
+  function corValorNormalizada(d){
+    return normalizarCorCaderno(corValor(d));
+  }
+
+  function questaoValor(d){
+    return d.questao ?? d.posicao ?? d.posicao_area ?? "";
+  }
+
+  function prioridadeValor(d){
+    return d.prioridade_pedagogica ?? d.prioridade ?? "";
+  }
+
+  function classificacaoValor(d){
+    return d.classificacao_historica ?? d.classificacao ?? "";
+  }
+
+  function pillPrioridade(v){
+    const t = texto(v);
+    let cls = "mapa-pill";
+
+    if(t === "Alta prioridade") cls += " mapa-pill-alta";
+    if(t === "Prioridade média") cls += " mapa-pill-media";
+    if(t === "Consolidada") cls += " mapa-pill-forte";
+
+    return `<span class="${cls}">${t}</span>`;
+  }
+
+  function pillClassificacao(v){
+    const t = texto(v);
+    let cls = "mapa-pill";
+
+    if(t === "Crítico") cls += " mapa-pill-alta";
+    if(t === "Atenção") cls += " mapa-pill-media";
+    if(t === "Forte") cls += " mapa-pill-forte";
+
+    return `<span class="${cls}">${t}</span>`;
+  }
+
+  function valoresUnicos(arr, campoOuFuncao){
+    const valores = arr.map(d => {
+      if(typeof campoOuFuncao === "function") return campoOuFuncao(d);
+      return d[campoOuFuncao];
+    });
+
+    return [...new Set(valores.filter(v => v !== null && v !== undefined && v !== ""))]
+      .sort((a,b) => String(a).localeCompare(String(b), "pt-BR", {numeric:true}));
+  }
+
+  function popularSelect(id, valores, rotuloTodos, prefixo = ""){
+    const select = document.getElementById(id);
+    if(!select) return;
+
+    const atual = select.value;
+    select.innerHTML = "";
+
+    const optTodos = document.createElement("option");
+    optTodos.value = "";
+    optTodos.textContent = rotuloTodos;
+    select.appendChild(optTodos);
+
+    valores.forEach(v => {
+      const opt = document.createElement("option");
+      opt.value = v;
+      opt.textContent = prefixo ? prefixo + v : v;
+      select.appendChild(opt);
+    });
+
+    if([...select.options].some(o => o.value === atual)){
+      select.value = atual;
+    }
+  }
+
+  function filtrosMapa(){
+    let habilidade = document.getElementById("mapaFiltroHabilidade")?.value || "";
+    habilidade = habilidade.replace(/^H/i, "");
+
+    return {
+      area: document.getElementById("mapaFiltroArea")?.value || "",
+      competencia: document.getElementById("mapaFiltroCompetencia")?.value || "",
+      habilidade,
+      prioridade: document.getElementById("mapaFiltroPrioridade")?.value || "",
+      recorrencia: document.getElementById("mapaFiltroRecorrencia")?.value || "",
+      classificacao: document.getElementById("mapaFiltroClassificacao")?.value || ""
+    };
+  }
+
+  function inicializarMapa(){
+    const dados = dadosMapa();
+
+    if(!dados.resumo.length || !dados.habHist.length){
+      return;
+    }
+
+    const resumo = dados.resumo[0];
+
+    const setText = (id, valor) => {
+      const el = document.getElementById(id);
+      if(el) el.textContent = valor;
+    };
+
+    setText("mapaTotalAnos", resumo.total_anos ?? "-");
+    setText("mapaTotalItens", Number(resumo.total_itens || 0).toLocaleString("pt-BR"));
+    setText("mapaTotalHabilidades", resumo.total_habilidades ?? "-");
+    setText("mapaTotalCompetencias", resumo.total_competencias ?? "-");
+    setText("mapaAltaPrioridade", resumo.habilidades_alta_prioridade ?? "-");
+
+    popularSelect("mapaFiltroArea", valoresUnicos(dados.habHist, "area"), "Todas");
+    popularSelect("mapaFiltroCompetencia", valoresUnicos(dados.habHist, "competencia"), "Todas");
+    popularSelect("mapaFiltroHabilidade", valoresUnicos(dados.habHist, habilidadeValor), "Todas", "H");
+    popularSelect("mapaFiltroPrioridade", valoresUnicos(dados.habHist, prioridadeValor), "Todas");
+    popularSelect("mapaFiltroRecorrencia", valoresUnicos(dados.habHist, "recorrencia"), "Todas");
+    popularSelect("mapaFiltroClassificacao", valoresUnicos(dados.habHist, classificacaoValor), "Todas");
+
+    [
+      "mapaFiltroArea",
+      "mapaFiltroCompetencia",
+      "mapaFiltroHabilidade",
+      "mapaFiltroPrioridade",
+      "mapaFiltroRecorrencia",
+      "mapaFiltroClassificacao"
+    ].forEach(id => {
+      const el = document.getElementById(id);
+      if(el) el.addEventListener("change", renderMapa);
+    });
+
+    renderMapa();
+  }
+
+  function aplicarFiltrosHabilidades(habs, f){
+    let out = habs;
+
+    if(f.area) out = out.filter(d => mesmoValor(d.area, f.area));
+    if(f.competencia) out = out.filter(d => mesmoValor(d.competencia, f.competencia));
+    if(f.habilidade) out = out.filter(d => String(habilidadeValor(d)) === String(f.habilidade));
+    if(f.prioridade) out = out.filter(d => mesmoValor(prioridadeValor(d), f.prioridade));
+    if(f.recorrencia) out = out.filter(d => mesmoValor(d.recorrencia, f.recorrencia));
+    if(f.classificacao) out = out.filter(d => mesmoValor(classificacaoValor(d), f.classificacao));
+
+    return out;
+  }
+
+  function aplicarFiltrosItens(itens, f){
+    let out = itens;
+
+    // Regra central: prioridade, recorrência e classificação NÃO filtram os itens.
+    // Os itens são filtrados apenas por área, competência, habilidade e cor do caderno.
+    if(f.area) out = out.filter(d => mesmoValor(d.area, f.area));
+    if(f.competencia) out = out.filter(d => mesmoValor(d.competencia, f.competencia));
+    if(f.habilidade) out = out.filter(d => String(habilidadeValor(d)) === String(f.habilidade));
+
+    return out;
+  }
+
+  function aplicarFiltrosCompetencias(compHist, habilidadesFiltradas, f){
+    let out = compHist;
+
+    if(f.area) out = out.filter(d => mesmoValor(d.area, f.area));
+    if(f.competencia) out = out.filter(d => mesmoValor(d.competencia, f.competencia));
+    if(f.classificacao) out = out.filter(d => mesmoValor(classificacaoValor(d), f.classificacao));
+
+    // Quando há filtro de habilidade, prioridade ou recorrência, a competência deve refletir
+    // as habilidades históricas que sobreviveram a esses filtros.
+    if(f.habilidade || f.prioridade || f.recorrencia){
+      const compsValidas = new Set(
+        habilidadesFiltradas.map(d => `${d.area}||${d.competencia}`)
+      );
+      out = out.filter(d => compsValidas.has(`${d.area}||${d.competencia}`));
+    }
+
+    return out;
+  }
+
+  function renderMapa(){
+    const dados = dadosMapa();
+    const f = filtrosMapa();
+
+    const habilidades = aplicarFiltrosHabilidades(dados.habHist, f);
+    const competencias = aplicarFiltrosCompetencias(dados.compHist, habilidades, f);
+    const itens = aplicarFiltrosItens(dados.itens, f);
+
+    renderTabelaHabilidades(habilidades);
+    renderTabelaCompetencias(competencias);
+    renderGraficoComparativoHabilidades(dados.habHist, f);
+  }
+
+  function renderTabelaHabilidades(habilidades){
+    const tbody = document.getElementById("mapaTabelaHabilidades");
+    if(!tbody) return;
+
+    if(!habilidades.length){
+      tbody.innerHTML = `<tr><td colspan="10">Nenhuma habilidade encontrada para os filtros selecionados.</td></tr>`;
+      return;
+    }
+
+    const ordenadas = [...habilidades].sort((a,b) => {
+      const prioridadePeso = v => {
+        const t = prioridadeValor(v);
+        if(t === "Alta prioridade") return 0;
+        if(t === "Prioridade média") return 1;
+        if(t === "Consolidada") return 2;
+        return 3;
+      };
+
+      return prioridadePeso(a) - prioridadePeso(b) ||
+             Number(a.taxa_acerto_media_historica ?? 999) - Number(b.taxa_acerto_media_historica ?? 999);
+    });
+
+    tbody.innerHTML = ordenadas.map(d => `
+      <tr>
+        <td>${texto(d.area)}</td>
+        <td>${texto(d.competencia)}</td>
+        <td>${habilidadeLabel(d)}</td>
+        <td>${texto(d.n_anos)}</td>
+        <td>${texto(d.n_itens_validos_total)}</td>
+        <td>${fmtPct(d.taxa_acerto_media_historica)}</td>
+        <td>${fmtNum(d.dificuldade_media_500_historica, 1)}</td>
+        <td><span class="mapa-pill">${texto(d.recorrencia)}</span></td>
+        <td>${pillClassificacao(classificacaoValor(d))}</td>
+        <td>${pillPrioridade(prioridadeValor(d))}</td>
+      </tr>
+    `).join("");
+  }
+
+  function renderTabelaCompetencias(competencias){
+    const tbody = document.getElementById("mapaTabelaCompetencias");
+    if(!tbody) return;
+
+    if(!competencias.length){
+      tbody.innerHTML = `<tr><td colspan="7">Nenhuma competência encontrada para os filtros selecionados.</td></tr>`;
+      return;
+    }
+
+    const ordenadas = [...competencias].sort((a,b) => {
+      return Number(b.habilidades_alta_prioridade ?? 0) - Number(a.habilidades_alta_prioridade ?? 0) ||
+             Number(a.taxa_acerto_media_historica ?? 999) - Number(b.taxa_acerto_media_historica ?? 999);
+    });
+
+    tbody.innerHTML = ordenadas.map(d => `
+      <tr>
+        <td>${texto(d.area)}</td>
+        <td>${texto(d.competencia)}</td>
+        <td>${texto(d.habilidades_mapeadas)}</td>
+        <td>${texto(d.n_itens_validos_total)}</td>
+        <td>${fmtPct(d.taxa_acerto_media_historica)}</td>
+        <td>${texto(d.habilidades_alta_prioridade)}</td>
+        <td>${pillClassificacao(classificacaoValor(d))}</td>
+      </tr>
+    `).join("");
+  }
+
+  function renderGraficoComparativoHabilidades(habilidadesHistoricas, filtros){
+    const box = document.getElementById("mapaGraficoHabilidades");
+    const descricao = document.getElementById("mapaGraficoDescricao");
+    if(!box) return;
+
+    const area = filtros.area || "CN";
+    const habilidadeSelecionada = filtros.habilidade ? String(filtros.habilidade).replace(/^H?/i, "") : "";
+    const competenciaSelecionada = filtros.competencia || "";
+
+    const habilidadesArea = habilidadesHistoricas
+      .filter(d => mesmoValor(d.area, area))
+      .sort((a,b) => Number(habilidadeValor(a) || 999) - Number(habilidadeValor(b) || 999));
+
+    if(descricao){
+      if(habilidadeSelecionada){
+        descricao.textContent = `O gráfico compara as habilidades da área ${area} pela quantidade histórica de itens válidos. A habilidade ${area} · ${competenciaSelecionada || ""} · H${habilidadeSelecionada} está destacada para comparação com as demais habilidades da área.`.replace(' ·  · ', ' · ');
+      } else {
+        descricao.textContent = `O gráfico compara as habilidades da área ${area} pela quantidade histórica de itens válidos no período 2016–2025.`;
+      }
+    }
+
+    if(!habilidadesArea.length){
+      box.innerHTML = `<div class="mapa-bar-chart-empty">Nenhuma habilidade histórica encontrada para a área selecionada.</div>`;
+      return;
+    }
+
+    const max = Math.max(...habilidadesArea.map(d => Number(d.n_itens_validos_total ?? 0)), 0);
+    const destaque = habilidadeSelecionada;
+    const totalHabilidades = habilidadesArea.length;
+    const mediaItens = habilidadesArea.reduce((acc,d) => acc + Number(d.n_itens_validos_total ?? 0), 0) / Math.max(totalHabilidades, 1);
+
+    box.innerHTML = `
+      <div class="mapa-bar-chart">
+        ${habilidadesArea.map(d => {
+          const h = String(habilidadeValor(d) ?? '');
+          const valor = Number(d.n_itens_validos_total ?? 0);
+          const altura = max > 0 ? Math.max(10, (valor / max) * 190) : 10;
+          const selected = destaque && h === destaque;
+          const titulo = `${area} · ${texto(d.competencia)} · H${h} — ${valor} item(ns) válido(s)`;
+          return `
+            <div class="mapa-bar-col ${selected ? 'is-selected' : ''}" title="${titulo}">
+              <div class="mapa-bar-value">${valor}</div>
+              <div class="mapa-bar-stick" style="height:${altura}px;"></div>
+              <div class="mapa-bar-label">H${h}</div>
+            </div>`;
+        }).join('')}
+      </div>
+      <div class="mapa-bar-caption">
+        <strong>Área analisada:</strong> ${area} · <strong>Habilidades comparadas:</strong> ${totalHabilidades} · <strong>Média de itens válidos por habilidade:</strong> ${mediaItens.toLocaleString('pt-BR', {minimumFractionDigits:1, maximumFractionDigits:1})}.
+        ${destaque ? `<br><strong>Destaque:</strong> H${destaque} representa a habilidade atualmente selecionada nos filtros.` : ''}
+      </div>`;
+  }
+
+  window.addEventListener("DOMContentLoaded", inicializarMapa);
 })();
 </script>
 
