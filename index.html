@@ -3694,6 +3694,26 @@ document.addEventListener("DOMContentLoaded", function(){
 })();
 </script>
 
+
+<script>
+/* Correção defensiva NAVE — mapa LC: C9 corresponde às habilidades H28, H29 e H30. */
+(function(){
+  function corrigirMapaLC(){
+    const colecoes = [
+      window.MAPA_HISTORICO_ITENS_2016_2025,
+      window.MAPA_HABILIDADES_HISTORICO_2016_2025,
+      window.MAPA_COMPETENCIAS_HISTORICO_2016_2025
+    ].filter(Array.isArray);
+    colecoes.forEach(lista => lista.forEach(d => {
+      const h = Number(String(d.habilidade ?? d.habilidade_label ?? '').replace(/^H/i,''));
+      if(d.area === 'LC' && [28,29,30].includes(h)) d.competencia = 'C9';
+    }));
+  }
+  if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', corrigirMapaLC);
+  else corrigirMapaLC();
+})();
+</script>
+
 </body>
 </html>
 
